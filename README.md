@@ -1,2 +1,1 @@
-Vanity
-======
+Vanity Docs
