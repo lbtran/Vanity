@@ -6,9 +6,10 @@
 	<title></title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/vanity.js"></script>
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
-	<!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="css/style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
@@ -16,35 +17,39 @@
 <body>
 
 <div id="wrapper">
+		<header class="welcome">
+			<img src="images/logo.png" alt="Vanity logo" title="Vanity the game" />
+			<h1>Are you dying to look good?</h1>
+		</header><!-- #header-->
+<!--		<header class="gameHeader">
+			<img src="images/status_nobody.png" alt="player's status" title="player's status" />
+			<h1>Name, you've got <span id="daysLeft">120 Days</span> to get famous!</h1>
+		</header>
+-->
+		<section id="middle">
 
-	<header class="welcome">
-		<img src="images/logo.png" alt="Vanity logo" title="Vanity the game" />
-		<h1>Are you dying to look good?</h1>
-	</header><!-- #header-->
+			<div id="container">
+				<div id="content">
+<!-- INTRO -->
+					<div data-role="page" id="intro">
+					
+					<section class="welcome"> <!-- welcome screen -->
+						<p>Welcome to the glitzy world of VANITY!</p>
+						<p>You may just be a nobody actor trying to make it to the big time right now, but the future is yours to decide. The road is a long one: You’ll need to go to casting calls to land some gigs and earn bigger and bigger roles to build up you reputation in Hollywood and reach Superstardom! But to get those gigs, you’ll need to put in some hard work! You’ll need to maintain your <em>FITNESS</em> at the gym, make sure you’re sufficiently <em>TAN</em> to appear healthy, and always be mindful of your <em>STYLE</em>.
+						FITNESS, TAN, and STYLE- Just keep these 3 things in mind, and you’ll own the silver screen in no time!
+						</p>
+						<p>First things first, what's your name?</p>
 
-	<header class="gameHeader">
-		<img src="images/status_nobody.png" alt="player's status" title="player's status" />
-		<h1>Name, you've got <span id="daysLeft">120 Days</span> to get famous!</h1>
-	</header><!-- #header-->
+						<div id="enterName">
+							<input class="field" type="text" name="playerName" />
+							<input class="button" type="submit" name="submitPlayerName" value="PLAY" />
+						</div>	
+					</section>
+		</div>
+<!-- HOME -->
+		<div data-role="page" id="gameHome">
 
-	<section id="middle">
-
-		<div id="container">
-			<div id="content">
-				
-				<section class="welcome"> <!-- welcome screen -->
-					<p>Welcome to the glitzy world of VANITY!</p>
-					<p>You may just be a nobody actor trying to make it to the big time right now, but the future is yours to decide. The road is a long one: You’ll need to go to casting calls to land some gigs and earn bigger and bigger roles to build up you reputation in Hollywood and reach Superstardom! But to get those gigs, you’ll need to put in some hard work! You’ll need to maintain your <em>FITNESS</em> at the gym, make sure you’re sufficiently <em>TAN</em> to appear healthy, and always be mindful of your <em>STYLE</em>.
-					FITNESS, TAN, and STYLE- Just keep these 3 things in mind, and you’ll own the silver screen in no time!
-					</p>
-					<p>First things first, what's your name?</p>
-
-					<div id="enterName">
-						<input class="field" type="text" name="playerName" />
-						<input class="button" type="submit" name="submitPlayerName" value="PLAY" />
-					</div>	
-				</section>	
-
+			<!-- #header-->
 				<section class="gameHome">
 
 					<h1>What would you like to do? (Pick from the images below.)</h1>
@@ -77,88 +82,107 @@
 
 					</footer>
 				</section>
+		</div>
+<!-- MAKE PROGRESS -->
+		<div data-role="page" id="makeProgress">
+					<section class="makeProgress">
 
-				<section class="makeProgress">
+						<article class="activity">
+							<p class="activityDesc" id="activityDescription"></p>
 
-					<article class="activity">
-						<p class="activityDesc">Hopefully putting time in at the salon will pay off!</p>
+							<img src="images/activity.png" alt="activity" title="activity" id="activityImage" />
+						</article>	
 
-						<img src="images/activity.png" alt="activity" title="activity" />
-					</article>	
+						<article class="progress">
+							<img src="images/style.png" alt="style" title="style" />
+							<div class="bar style">
+								<div class="amount"></div>	
+							</div>
+							<!-- need something to show increase, like animated arrow elongating -->
+						</article>	
 
-					<article class="progress">
-						<img src="images/style.png" alt="style" title="style" />
-						<div class="bar style">
-							<div class="amount"></div>	
-						</div>
-						<!-- need something to show increase, like animated arrow elongating -->
-					</article>	
+					</section>
+		</div>	
+<!-- CHOOSE TAN -->
+		<div data-role="page" id="chooseTan">
 
-				</section>	
+					<section class="chooseTan">
+						<article class="progress">
+							<img src="images/tan.png" alt="tan" title="tan" />
+							<div class="bar tan">
+								<div class="amount"></div>	
+							</div>
+						</article>
 
-				<section class="chooseTan">
-					<article class="progress">
-						<img src="images/tan.png" alt="tan" title="tan" />
-						<div class="bar tan">
-							<div class="amount"></div>	
-						</div>
-					</article>
+						<article class="activity">
+							<p>How would you like to get your tan on?</p>
+							<input class="button" type="submit" name="Natural" value="Natural Tan" />
+							<input class="button" type="submit" name="Bed" value="Tanning Bed" />
+						</article>
+					</section>	
+		</div>
+<!-- SKIN EXAM -->
+		<div data-role="page" id="skinExam">
 
-					<article class="activity">
-						<p>How would you like to get your tan on?</p>
-						<input class="button" type="submit" name="Natural" value="Natural Tan" />
-						<input class="button" type="submit" name="Bed" value="Tanning Bed" />
-					</article>
-				</section>	
+					<section class="skinExam">
 
-				<section class="skinExam">
+						<article class="activity">
+							<h2>Skin Exam</h2>
+							<p>The doctor conducts a skin exam and discovers.... What do you want to do?</p>
+							<input class="button" type="submit" name="Remove" value="Remove mole (Requires time off to heal.)" />
+							<input class="button" type="submit" name="Home" value="Head home (I'm not worried about it.)" />
+						</article>
+					</section>	
 
-					<article class="activity">
-						<h2>Skin Exam</h2>
-						<p>The doctor conducts a skin exam and discovers.... What do you want to do?</p>
-						<input class="button" type="submit" name="Remove" value="Remove mole (Requires time off to heal.)" />
-						<input class="button" type="submit" name="Home" value="Head home (I'm not worried about it.)" />
-					</article>
-				</section>	
+					<section class="removeMole">
+						<article class="activity">
+							<h2>Good decision!</h2>
+							<p>One less mole means less chance of cancer...</p>
+							<img src="images/doctor.png" alt="doctor" title="doctor" />						
+						</article>
+					</section>	
+		</div>
+<!-- STATUS -->		
+		<div data-role="page" id="fameStatus">
 
-				<section class="removeMole">
-					<article class="activity">
-						<h2>Good decision!</h2>
-						<p>One less mole means less chance of cancer...</p>
-						<img src="images/doctor.png" alt="doctor" title="doctor" />						
-					</article>
-				</section>	
+					<section class="fameStatus">
+						<article class="activity">
+							<h2>You're a nobody...</h2>
+							<p>So you're just a nobody, but you're far from being a somebody on the A List. Book a commercial and you may just make it to the D List.</p>
+							<img src="images/status_nobody.png" alt="D List" title="D List" />		
+							<!-- figure out another image to put here -->					
 
-				<section class="fameStatus">
-					<article class="activity">
-						<h2>You're a nobody...</h2>
-						<p>So you're just a nobody, but you're far from being a somebody on the A List. Book a commercial and you may just make it to the D List.</p>
-						<img src="images/status_nobody.png" alt="D List" title="D List" />		
-						<!-- figure out another image to put here -->					
+						</article>
+					</section>	
+		</div>
+<!-- CASTING CALL -->		
+		<div data-role="page" id="castingCall">
 
-					</article>
-				</section>	
+					<section class="castingCall">
+						<article class="activity">
+							<h2>Casting Call</h2>
+							<p>Which one of these do you want to audition for?</p>
+							<input class="button" type="submit" name="Indie" value="Indie Movie" />
+							<input class="button" type="submit" name="Commercial" value="Commercial" />
+							<input class="button" type="submit" name="Blockbuster" value="Blockbuster Film" />
+							<input class="button" type="submit" name="None" value="None right now." />
+						</article>
+					</section>
+		</div>
+<!-- CASTING CALL RESULT -->
+		<div data-role="page" id="castingCallResult">
 
-				<section class="castingCall">
-					<article class="activity">
-						<h2>Casting Call</h2>
-						<p>Which one of these do you want to audition for?</p>
-						<input class="button" type="submit" name="Indie" value="Indie Movie" />
-						<input class="button" type="submit" name="Commercial" value="Commercial" />
-						<input class="button" type="submit" name="Blockbuster" value="Blockbuster Film" />
-						<input class="button" type="submit" name="None" value="None right now." />
-					</article>
-				</section>
+					<section class="castingCallResult">
+						<article class="activity">
+							<h2>Maybe next time</h2>
+							<p>This casting call was looking for someone with more style and a deeper glow. Sorry, maybe next time!</p>
+							<img src="images/nope.png" alt="failed casting call" title="failed casting call" />					
 
-
-				<section class="failedCastingCall">
-					<article class="activity">
-						<h2>Maybe next time</h2>
-						<p>This casting call was looking for someone with more style and a deeper glow. Sorry, maybe next time!</p>
-						<img src="images/nope.png" alt="failed casting call" title="failed casting call" />					
-
-					</article>
-				</section>						
+						</article>
+					</section>						
+		</div>
+<!-- OBITUARY -->
+		<div data-role="page" id="final">
 
 				<section class="final">
 					<article class="activity">
@@ -168,24 +192,26 @@
 						<input class="button" type="submit" name="Again" value="Play again" />
 					</article>
 				</section>
-
-			</div><!-- #content-->
-		</div><!-- #container-->
-
-		<aside id="sideLeft">
-			
-
-		</aside><!-- #sideLeft -->
-
-		<aside id="sideRight">
-			
-		</aside><!-- #sideRight -->
-
-	</section><!-- #middle-->
-
-	<footer id="footer">
+		</div>
 		
-	</footer><!-- #footer -->
+
+				</div><!-- #content-->
+			</div><!-- #container-->
+
+			<aside id="sideLeft">
+				
+
+			</aside><!-- #sideLeft -->
+
+			<aside id="sideRight">
+				
+			</aside><!-- #sideRight -->
+
+		</section><!-- #middle-->
+
+		<footer id="footer">
+			
+		</footer><!-- #footer -->
 
 </div><!-- #wrapper -->
 
