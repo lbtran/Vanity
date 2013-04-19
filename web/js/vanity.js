@@ -33,9 +33,9 @@ var tips = ["Get a tan", "Get some muscles"];
 function getNaturalTan() {
 	var tan = getActivity(activities.natural);
 	player.tan += tan.value;
-	var numberOfMoles = Math.floor(Math.random()*2);
+	var numberOfMoles = randomInt(2);
 	for (var i = 0; i < numberOfMoles; i++) {
-		var moleSeverity = Math.floor((Math.random()*10)) + 6;
+		var moleSeverity = randomInt(10) + 6;
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
 	return tan.caption;
@@ -44,9 +44,9 @@ function getNaturalTan() {
 function getTanningBed() {
 	var tan = getActivity(activities.bed);
 	player.tan += tan.value;
-	var numberOfMoles = Math.floor(Math.random()*4);
+	var numberOfMoles = randomInt(4);
 	for (var i = 0; i < numberOfMoles; i++) {
-		var moleSeverity = Math.floor((Math.random()*10)) + 3;
+		var moleSeverity = randomInt(10) + 3;
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
 	return tan.caption;
@@ -65,7 +65,16 @@ function getFitness() {
 }
 
 function getActivity(activity) {
-	var earned = Math.floor((Math.random()*10)+1);
-	var action = activity[Math.floor(Math.random()*activity.length)];
+	var earned = randomInt(10)+1;
+	var action = activity[randomInt(activity.length)];
 	return {value: earned, caption: action}
 }
+
+function randomInt(range) {
+	return Math.floor(Math.random()*range);
+}
+function removeMole() {
+	player.moles.splice(randomInt(player.moles.length),1);
+}
+
+function castingCall()
