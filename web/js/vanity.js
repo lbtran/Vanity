@@ -77,4 +77,6 @@ function removeMole() {
 	player.moles.splice(randomInt(player.moles.length),1);
 }
 
-function castingCall()
+function castingCall() {
+	
+}
