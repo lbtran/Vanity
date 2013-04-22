@@ -446,6 +446,6 @@ header h1 {
 /* End Media Query - max-width: 480px;
 -----------------------------------------------------------------------------*/	
 #gameHome, #makeProgress, #chooseTan, 
-#skinExam, #fameStatus, #castingCall, #castingCallResult, #final {
+#skinExam, #fameStatus, #castingCall, #castingCallResult, #final, #removeMole {
 	display: none;
 }

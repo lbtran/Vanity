@@ -47,7 +47,9 @@ var auditions = {
 						days: 8,
 
 				},
-				variance: 4
+				variance: 4,
+				success: ["You got the part!", "You did it!", "Success!", "Congratulations!", "Good News!"],
+				failure: ["Maybe next time", "Better luck next time...", "Sorry", "Bad News"],
 			}
 
 var moles = {
@@ -188,9 +190,13 @@ function audition(call) {
 	var requiredFitness = call.fitness + randomInt(auditions.variance);
 	if (player.fitness >= requiredFitness && player.style >= requiredStyle && player.tan >= requiredTan) {
 		player.vanity += call.vanity;
+		var selectedHeader = randomInt(auditions.success.length);
+		$("div#castingResultHeader").html(auditions.success[selectedHeader]);
 		return {success: true};
 	}
 	else {
+		var selectedHeader = randomInt(auditions.failure.length);
+		$("div#castingResultHeader").html(auditions.success[selectedHeader]);
 		var attributesNeeded = [];
 		if (player.tan < requiredTan) {
 			attributesNeeded.push("tan");
@@ -210,14 +216,14 @@ function getTip(call, result) {
 
 	selectedIndex = randomInt(auditions.indie.fail.length);
 	if (result.attributes.length == 1) {
-		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0];
+		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0] + ".";
 	}
 	if (result.attributes.length == 2) {
-		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0] + " and " + result.attributes[1];
+		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0] + " and " + result.attributes[1] + ".";
 
 	}
 	if (result.attributes.length == 3) {
-		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0] + ", " + result.attributes[1] + " and " + result.attributes[2];
+		return call.fail[selectedIndex] + tipPrefix[tipIndex] + result.attributes[0] + ", " + result.attributes[1] + " and " + result.attributes[2] + ".";
 
 	}
 
@@ -225,44 +231,69 @@ function getTip(call, result) {
 function auditionForIndie() {
 	var result = audition(auditions.indie);
 	player.daysLeft -= auditions.indie.days;
+	$('#daysLeft').html(player.daysLeft);
 	var selectedIndex;
 	if (result.success) {
 		selectedIndex = randomInt(auditions.indie.success.length);
-		return auditions.indie.success[selectedIndex];
+		$('p#castingResult').html(auditions.indie.success[selectedIndex]);
 	}
 	else {
-		return getTip(auditions.indie, result);
+		$('p#castingResult').html(getTip(auditions.indie, result));
 	}
+	showAudition();
+	setTimeout(function() {
+		$('div#castingCallResult').hide();
+		$('div#gameHome').show();
+    }, 3000);
+
 }
 
 function auditionForCommercial() {
 	var result = audition(auditions.commercial);
 	player.daysLeft -= auditions.commercial.days;
+	$('#daysLeft').html(player.daysLeft);
+
 	var selectedIndex;
 	if (result.success) {
 		selectedIndex = randomInt(auditions.commercial.success.length);
-		return auditions.commercial.success[selectedIndex];
+		$('p#castingResult').html(auditions.commercial.success[selectedIndex]);
 	}
 	else {
-		return getTip(auditions.commercial, result);
+		$('p#castingResult').html(getTip(auditions.commercial, result));
 	}
+	showAudition();
+	setTimeout(function() {
+		$('div#castingCallResult').hide();
+		$('div#gameHome').show();
+    }, 3000);
 
 }
 
 function auditionForBlockbuster() {
 	var result = audition(auditions.blockbuster);
 	player.daysLeft -= auditions.blockbuster.days;
+	$('#daysLeft').html(player.daysLeft);
+
 	var selectedIndex;
 	if (result.success) {
 		selectedIndex = randomInt(auditions.blockbuster.success.length);
-		return auditions.blockbuster.success[selectedIndex];
+		$('p#castingResult').html(auditions.blockbuster.success[selectedIndex]);
 	}
 	else {
-		return getTip(auditions.blockbuster, result);
+		$('p#castingResult').html(getTip(auditions.blockbuster, result));
 	}
+	showAudition();
+	setTimeout(function() {
+		$('div#castingCallResult').hide();
+		$('div#gameHome').show();
+    }, 3000);
 
 }
+function showAudition() {
+	$('div#castingCall').hide();
+	$('div#castingCallResult').show();
 
+}
 function dontAudition() {
 	$('div#castingCall').hide();
 	$('div#gameHome').show();
@@ -276,4 +307,9 @@ function startGame() {
 	$('div#gameHome').show();
 }
 
+function doctorsOffice() {
+	$('div#gameHome').hide();
+	$('div#skinExam').show();
+
+}
 
