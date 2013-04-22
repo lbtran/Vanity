@@ -55,12 +55,21 @@ var auditions = {
 var moles = {
 	tanningBed: {amount: 4, modifier: 3},
 	natural: {amount: 2, modifier: 6},
-	baselineSeverity: 10
+	baselineSeverity: 10,
+	removalTime: 10
 }
 
+var fame = [{amount: 0, status: "Nobody"},
+			{amount: 2, status: "D Lister"},
+			{amount: 4, status: "C Lister"},			
+			{amount: 6, status: "B Lister"},			
+			{amount: 8, status: "A Lister"}			
+			];
 
 var tips = ["Get a tan", "Get some muscles"];
 var tipPrefix = [" Maybe you should work on your ", " They said you needed more ", " I bet they wanted someone with more "];
+
+
 function getTan() {
 	$('div#chooseTan').show();
 	$('div#gameHome').hide();
@@ -175,7 +184,16 @@ function randomInt(range) {
 	return Math.floor(Math.random()*range);
 }
 function removeMole() {
+	player.daysLeft -= moles.removalTime;
+	$('#daysLeft').html(player.daysLeft);
 	player.moles.splice(randomInt(player.moles.length),1);
+	$('div#skinExam').hide();
+	$('div#removeMole').show();
+	setTimeout(function() {
+		$('div#removeMole').hide();
+		$('div#gameHome').show();
+    }, 3000);
+
 }
 
 function castingCall() {
@@ -298,6 +316,12 @@ function dontAudition() {
 	$('div#castingCall').hide();
 	$('div#gameHome').show();
 }
+function noExam() {
+	$('div#skinExam').hide();
+	$('div#gameHome').show();
+
+}
+
 
 function startGame() {
 	player.name = $("input[name=playerName]").val();
