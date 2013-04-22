@@ -73,7 +73,7 @@
 
 					<footer>
 						<a href="#"><img class="logo" src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a>
-						<a href="#"><img class="casting_call" src="images/casting_call.png" alt="casting call" title="casting call" /></a>
+						<a href="#" onclick="castingCall()"><img class="casting_call" src="images/casting_call.png" alt="casting call" title="casting call" /></a>
 						<a href="#"><img class="doctor" src="images/doctor.png" alt="doctor" title="doctor" /></a>
 
 					</footer>
@@ -158,10 +158,10 @@
 						<article class="activity">
 							<h2>Casting Call</h2>
 							<p>Which one of these do you want to audition for?</p>
-							<input class="button" type="submit" name="Indie" value="Indie Movie" />
-							<input class="button" type="submit" name="Commercial" value="Commercial" />
-							<input class="button" type="submit" name="Blockbuster" value="Blockbuster Film" />
-							<input class="button" type="submit" name="None" value="None right now." />
+							<input class="button" type="submit" name="Indie" value="Indie Movie" onclick="auditionForIndie()"/>
+							<input class="button" type="submit" name="Commercial" value="Commercial" onclick="auditionForCommercial()"/>
+							<input class="button" type="submit" name="Blockbuster" value="Blockbuster Film" onclick="auditionForBlockbuster()"/>
+							<input class="button" type="submit" name="None" value="None right now." onclick="dontAudition()"/>
 						</article>
 					</section>
 		</div>
