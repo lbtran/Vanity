@@ -6,7 +6,7 @@
 	<title></title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/vanity.js"></script>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
 	<!--[if lte IE 6]><link rel="stylesheet" href="css/style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -20,12 +20,7 @@
 		<header class="welcome">
 			<img src="images/logo.png" alt="Vanity logo" title="Vanity the game" />
 			<h1>Are you dying to look good?</h1>
-		</header><!-- #header-->
-<!--		<header class="gameHeader">
-			<img src="images/status_nobody.png" alt="player's status" title="player's status" />
-			<h1>Name, you've got <span id="daysLeft">120 Days</span> to get famous!</h1>
 		</header>
--->
 		<section id="middle">
 
 			<div id="container">
@@ -42,7 +37,7 @@
 
 						<div id="enterName">
 							<input class="field" type="text" name="playerName" />
-							<input class="button" type="submit" name="submitPlayerName" value="PLAY" />
+							<input class="button" type="submit" name="submitPlayerName" onclick="startGame()" value="PLAY" />
 						</div>	
 					</section>
 		</div>
@@ -55,21 +50,22 @@
 					<h1>What would you like to do? (Pick from the images below.)</h1>
 
 					<article class="progress">
-						<img src="images/fitness.png" alt="fitness" title="fitness" />
+						<a href="#" onclick="getFitness()"><img src="images/fitness.png" alt="fitness" title="fitness" /></a>
 						<div class="bar fitness">
 							<div class="amount"></div>	
 						</div>
 					</article>	
 
 					<article class="progress">
-						<img src="images/tan.png" alt="tan" title="tan" />
+						<a href="#" onclick="getTan()"><img src="images/tan.png" alt="tan" title="tan" /></a>
 						<div class="bar tan">
 							<div class="amount"></div>	
 						</div>
 					</article>	
 
 					<article class="progress">
-						<img src="images/style.png" alt="style" title="style" />
+						<a href="#" onclick="getStyle()"><img src="images/style.png" alt="style" title="style" />
+						</a>
 						<div class="bar style">
 							<div class="amount"></div>		
 						</div>
@@ -94,8 +90,8 @@
 						</article>	
 
 						<article class="progress">
-							<img src="images/style.png" alt="style" title="style" />
-							<div class="bar style">
+							<img src="images/style.png" alt="progress" title="progress" />
+							<div class="bar">
 								<div class="amount"></div>	
 							</div>
 							<!-- need something to show increase, like animated arrow elongating -->
@@ -116,8 +112,8 @@
 
 						<article class="activity">
 							<p>How would you like to get your tan on?</p>
-							<input class="button" type="submit" name="Natural" value="Natural Tan" />
-							<input class="button" type="submit" name="Bed" value="Tanning Bed" />
+							<input class="button" type="submit" name="Natural" value="Natural Tan" onclick="getNaturalTan()" />
+							<input class="button" type="submit" name="Bed" value="Tanning Bed" onclick="getTanningBed()"/>
 						</article>
 					</section>	
 		</div>

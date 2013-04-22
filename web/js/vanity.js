@@ -6,7 +6,8 @@ var player = {
 				style:0,
 				tan:0,
 				moles: [],
-				vanity: 0
+				vanity: 0,
+				daysLeft: 120
 			};
 
 var activities = {
@@ -30,6 +31,11 @@ var activities = {
 
 var tips = ["Get a tan", "Get some muscles"];
 
+function getTan() {
+	$('div#chooseTan').show();
+	$('div#gameHome').hide();
+}
+
 function getNaturalTan() {
 	var tan = getActivity(activities.natural);
 	player.tan += tan.value;
@@ -38,6 +44,21 @@ function getNaturalTan() {
 		var moleSeverity = randomInt(10) + 6;
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
+	$('#activityDescription').html(tan.caption);
+	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+	$('div#makeProgress article.progress div.bar').addClass("tan");
+	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
+
+	$('div#chooseTan').hide();
+	$('div#makeProgress').show();
+	$('div#makeProgress article.progress div.bar .amount').animate({width:player.tan});
+	setTimeout(function() {
+		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
+		$('div#makeProgress').hide();
+		$('div#gameHome').show();
+	    $('div#makeProgress article.progress div.bar').removeClass("tan");
+    }, 3000);
+
 	return tan.caption;
 }
 
@@ -49,25 +70,75 @@ function getTanningBed() {
 		var moleSeverity = randomInt(10) + 3;
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
+	$('#activityDescription').html(tan.caption);
+	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+	$('div#makeProgress article.progress div.bar').addClass("tan");
+	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
+
+	$('div#chooseTan').hide();
+	$('div#makeProgress').show();
+	$('div#makeProgress article.progress div.bar .amount').animate({width:player.tan});
+	setTimeout(function() {
+		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
+		$('div#makeProgress').hide();
+		$('div#gameHome').show();
+	    $('div#makeProgress article.progress div.bar').removeClass("tan");
+    }, 3000);
+
 	return tan.caption;
 }
 
 function getStyle() {
 	var style = getActivity(activities.style);
 	player.style += style.value;
+	$('#activityDescription').html(style.caption);
+	$('#activityImage').attr('src', 'images/style_activity_'+style.index+'.png');
+	$('div#makeProgress article.progress div.bar').addClass("style");
+	$('div#makeProgress article.progress img').attr('src', 'images/style.png');
+
+	$('div#gameHome').hide();
+	$('div#makeProgress').show();
+	$('div#makeProgress article.progress div.bar .amount').animate({width:player.style});
+	setTimeout(function() {
+		$('div#gameHome article.progress div.bar.style .amount').css('width', player.style);
+		$('div#makeProgress').hide();
+		$('div#gameHome').show();
+	    $('div#makeProgress article.progress div.bar').removeClass("style");
+    }, 3000);
 	return style.caption;
 }
+
+
+
 
 function getFitness() {
 	var fitness = getActivity(activities.fitness);
 	player.fitness += fitness.value;
+	$('#activityDescription').html(fitness.caption);
+	$('#activityImage').attr('src', 'images/fitness_activity_'+fitness.index+'.png');
+	$('div#makeProgress article.progress div.bar').addClass("fitness");
+	$('div#makeProgress article.progress img').attr('src', 'images/fitness.png');
+
+	$('div#gameHome').hide();
+	$('div#makeProgress').show();
+	$('div#makeProgress article.progress div.bar .amount').animate({width:player.fitness});
+	setTimeout(function() {
+		$('div#gameHome article.progress div.bar.fitness .amount').css('width', player.fitness);
+		$('div#makeProgress').hide();
+		$('div#gameHome').show();
+	    $('div#makeProgress article.progress div.bar').removeClass("fitness");
+    }, 3000);
+
 	return fitness.caption;
 }
 
 function getActivity(activity) {
 	var earned = randomInt(10)+1;
-	var action = activity[randomInt(activity.length)];
-	return {value: earned, caption: action}
+	var selectedIndex = randomInt(activity.length);
+	var action = activity[selectedIndex];
+	player.daysLeft--;
+	$('#daysLeft').html(player.daysLeft);
+	return {value: earned, caption: action, index: selectedIndex}
 }
 
 function randomInt(range) {
@@ -80,3 +151,13 @@ function removeMole() {
 function castingCall() {
 	
 }
+
+function startGame() {
+	player.name = $("input[name=playerName]").val();
+	var headerHTML = "<img src='images/status_nobody.png' alt='status' title='status'/><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1>";
+	$('header.welcome').html(headerHTML);
+	$('div#intro').hide();
+	$('div#gameHome').show();
+}
+
+
