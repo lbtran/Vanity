@@ -13,7 +13,7 @@ var player = {
 var activities = {
 				baseline: 10,
 				fitness: ["Nice walk", "Nice run", "Nice biceps"],
-				style: ["Nice hat", "nice sunglasses", "nice shoes"],
+				style: ["You got your hair did.", "New haircut! Styling!"],
 				natural:["A day of beach volleyball was just what you needed to leave you glowing.", "You lounged by the pool all day. Good thing you didn’t fall asleep!", "Reading and sunbathing in the park- good job building your mind, too.", "The breeze on the roof was perfect for sunbathing today.", "Swimming at the beach always leaves you tan and energized, too!", "A day of yard work in you bathing suit left you a few shades darker.", "Listening to your favorite playlist was a great way to spend the day in the sun."],
 				bed: ["Shame they didn’t let you stay in longer. You positively glowing!", "Maybe you stayed in a bit too long. Your skin feels a little tight...", "Your skin is now golden brown perfection!", "One catnap on the bed and you’ve got a nice, even tan."]
 }
@@ -83,7 +83,8 @@ function getNaturalTan() {
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
 	$('#activityDescription').html(tan.caption);
-	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+//	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+	$('#activityImage').attr('src', 'images/activity.png');
 	$('div#makeProgress article.progress div.bar').addClass("tan");
 	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
 
@@ -115,7 +116,8 @@ function getTanningBed() {
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
 	$('#activityDescription').html(tan.caption);
-	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+//	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
+	$('#activityImage').attr('src', 'images/activity.png');
 	$('div#makeProgress article.progress div.bar').addClass("tan");
 	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
 
@@ -141,7 +143,8 @@ function getStyle() {
 	var style = getActivity(activities.style);
 	player.style += style.value;
 	$('#activityDescription').html(style.caption);
-	$('#activityImage').attr('src', 'images/style_activity_'+style.index+'.png');
+//	$('#activityImage').attr('src', 'images/style_activity_'+style.index+'.png');
+	$('#activityImage').attr('src', 'images/activity.png');
 	$('div#makeProgress article.progress div.bar').addClass("style");
 	$('div#makeProgress article.progress img').attr('src', 'images/style.png');
 
@@ -169,7 +172,8 @@ function getFitness() {
 	var fitness = getActivity(activities.fitness);
 	player.fitness += fitness.value;
 	$('#activityDescription').html(fitness.caption);
-	$('#activityImage').attr('src', 'images/fitness_activity_'+fitness.index+'.png');
+//	$('#activityImage').attr('src', 'images/fitness_activity_'+fitness.index+'.png');
+	$('#activityImage').attr('src', 'images/activity.png');
 	$('div#makeProgress article.progress div.bar').addClass("fitness");
 	$('div#makeProgress article.progress img').attr('src', 'images/fitness.png');
 
