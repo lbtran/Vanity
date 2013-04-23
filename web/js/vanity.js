@@ -143,7 +143,7 @@ function getStyle() {
 	$('#activityDescription').html(style.caption);
 	$('#activityImage').attr('src', 'images/style_activity_'+style.index+'.png');
 	$('div#makeProgress article.progress div.bar').addClass("style");
-	$('div#makeProgress article.progress img').attr('src', 'images/style_button.png');
+	$('div#makeProgress article.progress img').attr('src', 'images/style.png');
 
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
@@ -171,7 +171,7 @@ function getFitness() {
 	$('#activityDescription').html(fitness.caption);
 	$('#activityImage').attr('src', 'images/fitness_activity_'+fitness.index+'.png');
 	$('div#makeProgress article.progress div.bar').addClass("fitness");
-	$('div#makeProgress article.progress img').attr('src', 'images/fitness_button.png');
+	$('div#makeProgress article.progress img').attr('src', 'images/fitness.png');
 
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
