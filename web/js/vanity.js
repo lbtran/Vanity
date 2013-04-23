@@ -85,7 +85,7 @@ function getNaturalTan() {
 	$('#activityDescription').html(tan.caption);
 	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
 	$('div#makeProgress article.progress div.bar').addClass("tan");
-	$('div#makeProgress article.progress img').attr('src', 'images/tan_button.png');
+	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
 
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
