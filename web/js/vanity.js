@@ -93,7 +93,7 @@ function getNaturalTan() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
 		$('div#makeProgress').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -109,9 +109,9 @@ function getNaturalTan() {
 function getTanningBed() {
 	var tan = getActivity(activities.bed);
 	player.tan += tan.value;
-	var numberOfMoles = randomInt(moles.tanningBed);
+	var numberOfMoles = randomInt(moles.tanningBed.amount);
 	for (var i = 0; i < numberOfMoles; i++) {
-		var moleSeverity = randomInt(moles.baselineSeverity) + moles.tanningBed.modifer;
+		var moleSeverity = randomInt(moles.baselineSeverity) + moles.tanningBed.modifier;
 		player.moles.push({turnsLeft: moleSeverity, age: 0})
 	}
 	$('#activityDescription').html(tan.caption);
@@ -125,7 +125,7 @@ function getTanningBed() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
 		$('div#makeProgress').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -151,7 +151,7 @@ function getStyle() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.style .amount').css('width', player.style);
 		$('div#makeProgress').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -179,7 +179,7 @@ function getFitness() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.fitness .amount').css('width', player.fitness);
 		$('div#makeProgress').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -282,7 +282,7 @@ function auditionForIndie() {
 	showAudition();
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -308,7 +308,7 @@ function auditionForCommercial() {
 	showAudition();
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -335,7 +335,7 @@ function auditionForBlockbuster() {
 	showAudition();	
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		if(dayPassedDidIDie) {
+		if(dayPassedDidIDie()) {
 			obituary();
 		}
 		else {
@@ -366,6 +366,9 @@ function getFameStatus() {
 			statusImg.attr("src", "images/" + fame[i].image);
 			statusImg.attr("alt", fame[i].status);
 			statusImg.attr("title", fame[i].status);
+			if (fame[i].status = "A Lister") {
+				obituary();
+			}
 		}
 	}
 }
