@@ -59,16 +59,15 @@ var moles = {
 	removalTime: 10
 }
 
-var fame = [{amount: 0, status: "Nobody"},
-			{amount: 2, status: "D Lister"},
-			{amount: 4, status: "C Lister"},			
-			{amount: 6, status: "B Lister"},			
-			{amount: 8, status: "A Lister"}			
+var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png"},
+			{amount: 2, status: "D Lister", image: "status_d.png"},
+			{amount: 4, status: "C Lister", image: "status_c.png"},			
+			{amount: 6, status: "B Lister", image: "status_b.png"},			
+			{amount: 8, status: "A Lister", image: "status_a.png"}			
 			];
 
 var tips = ["Get a tan", "Get some muscles"];
 var tipPrefix = [" Maybe you should work on your ", " They said you needed more ", " I bet they wanted someone with more "];
-
 
 function getTan() {
 	$('div#chooseTan').show();
@@ -94,8 +93,14 @@ function getNaturalTan() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
 		$('div#makeProgress').hide();
-		$('div#gameHome').show();
-	    $('div#makeProgress article.progress div.bar').removeClass("tan");
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		    $('div#makeProgress article.progress div.bar').removeClass("tan");
+
+		}
     }, 3000);
 
 	return tan.caption;
@@ -120,8 +125,13 @@ function getTanningBed() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
 		$('div#makeProgress').hide();
-		$('div#gameHome').show();
-	    $('div#makeProgress article.progress div.bar').removeClass("tan");
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		    $('div#makeProgress article.progress div.bar').removeClass("tan");
+		}
     }, 3000);
 
 	return tan.caption;
@@ -141,8 +151,13 @@ function getStyle() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.style .amount').css('width', player.style);
 		$('div#makeProgress').hide();
-		$('div#gameHome').show();
-	    $('div#makeProgress article.progress div.bar').removeClass("style");
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+	    	$('div#makeProgress article.progress div.bar').removeClass("style");
+		}
     }, 3000);
 	return style.caption;
 }
@@ -164,8 +179,13 @@ function getFitness() {
 	setTimeout(function() {
 		$('div#gameHome article.progress div.bar.fitness .amount').css('width', player.fitness);
 		$('div#makeProgress').hide();
-		$('div#gameHome').show();
-	    $('div#makeProgress article.progress div.bar').removeClass("fitness");
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		    $('div#makeProgress article.progress div.bar').removeClass("fitness");
+	    }
     }, 3000);
 
 	return fitness.caption;
@@ -249,6 +269,7 @@ function getTip(call, result) {
 function auditionForIndie() {
 	var result = audition(auditions.indie);
 	player.daysLeft -= auditions.indie.days;
+	getFameStatus();	
 	$('#daysLeft').html(player.daysLeft);
 	var selectedIndex;
 	if (result.success) {
@@ -261,7 +282,12 @@ function auditionForIndie() {
 	showAudition();
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		$('div#gameHome').show();
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		}
     }, 3000);
 
 }
@@ -270,7 +296,7 @@ function auditionForCommercial() {
 	var result = audition(auditions.commercial);
 	player.daysLeft -= auditions.commercial.days;
 	$('#daysLeft').html(player.daysLeft);
-
+	getFameStatus();
 	var selectedIndex;
 	if (result.success) {
 		selectedIndex = randomInt(auditions.commercial.success.length);
@@ -282,7 +308,12 @@ function auditionForCommercial() {
 	showAudition();
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		$('div#gameHome').show();
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		}
     }, 3000);
 
 }
@@ -290,6 +321,7 @@ function auditionForCommercial() {
 function auditionForBlockbuster() {
 	var result = audition(auditions.blockbuster);
 	player.daysLeft -= auditions.blockbuster.days;
+	getFameStatus();
 	$('#daysLeft').html(player.daysLeft);
 
 	var selectedIndex;
@@ -300,10 +332,15 @@ function auditionForBlockbuster() {
 	else {
 		$('p#castingResult').html(getTip(auditions.blockbuster, result));
 	}
-	showAudition();
+	showAudition();	
 	setTimeout(function() {
 		$('div#castingCallResult').hide();
-		$('div#gameHome').show();
+		if(dayPassedDidIDie) {
+			obituary();
+		}
+		else {
+			$('div#gameHome').show();
+		}
     }, 3000);
 
 }
@@ -322,10 +359,31 @@ function noExam() {
 
 }
 
+function getFameStatus() {
+	var statusImg = $('img#status');
+	for (var i = 0; i < fame.length; i++) {
+		if (player.vanity >= fame[i].amount) {
+			statusImg.attr("src", "images/" + fame[i].image);
+			statusImg.attr("alt", fame[i].status);
+			statusImg.attr("title", fame[i].status);
+		}
+	}
+}
+
+function dayPassedDidIDie() {
+	var melanoma = false;
+	for (var i = 0; i < player.moles.length; i++) {
+		player.moles[i].age++;
+		if (player.moles[i].turnsLeft - player.moles[i].age <= 0) {
+			melanoma = true;
+		}
+	}
+	return melanoma;
+}
 
 function startGame() {
 	player.name = $("input[name=playerName]").val();
-	var headerHTML = "<img src='images/status_nobody.png' alt='status' title='status'/><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1>";
+	var headerHTML = "<img src='images/status_nobody.png' alt='status' title='status' id='status'/><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1>";
 	$('header.welcome').html(headerHTML);
 	$('div#intro').hide();
 	$('div#gameHome').show();
@@ -337,3 +395,7 @@ function doctorsOffice() {
 
 }
 
+function obituary() {
+	$('div#gameHome').hide();
+	$('div#final').show();
+}
