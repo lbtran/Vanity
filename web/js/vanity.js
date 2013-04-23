@@ -366,7 +366,7 @@ function getFameStatus() {
 			statusImg.attr("src", "images/" + fame[i].image);
 			statusImg.attr("alt", fame[i].status);
 			statusImg.attr("title", fame[i].status);
-			if (fame[i].status = "A Lister") {
+			if (fame[i].status == "A Lister") {
 				obituary();
 			}
 		}

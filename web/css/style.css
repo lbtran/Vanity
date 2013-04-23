@@ -451,8 +451,8 @@ body {
 	.gameHome footer {
 		clear: both;
 		padding: 0;
-		position: fixed;
-		bottom: -8%;
+/*		position: fixed;
+		bottom: -8%;*/
 		left: 3.333333333%;
 		height: 25%;
 		overflow: hidden;
