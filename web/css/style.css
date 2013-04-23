@@ -283,7 +283,7 @@ header h1 {
 	overflow: hidden;
 }
 #content {
-	padding: 0 270px 0 270px;
+/*	padding: 0 270px 0 270px;*/
 }
 
 
@@ -449,13 +449,13 @@ body {
 	}
 
 	.gameHome footer {
-		clear: both;
+/*		clear: both;
 		padding: 0;
-/*		position: fixed;
-		bottom: -8%;*/
 		left: 3.333333333%;
 		height: 25%;
-		overflow: hidden;
+		overflow: hidden;*/
+		width: 100%;
+
 	}
 
 	.gameHome footer img {
@@ -574,14 +574,14 @@ body {
 		margin-bottom: 5%;
 	}
 	header h1 {
-		font-size: 2.2em;
+		font-size: 1.5em;
 		line-height: 1;
-		width: 48.46625767%; /*474/978*/
+		width: 75%;
 		float: left;
 	}
 
 	header h1 span {
-		font-size: 2.3em;
+		font-size: 2.2em;
 		font-weight: bold;
 /*		display: block;*/
 		line-height: 1.3;
@@ -665,7 +665,7 @@ body {
 	}
 
 	div.bar .amount {
-		width: 100%;
+		width: 0%;
 		display: inline-block;
 		height: 100%;
 	}
@@ -683,32 +683,28 @@ body {
 	}
 
 	.gameHome footer {
-		float: left;
+/*		float: left;
 		padding: 0;
 		width: 28%;
-		margin-left: 2%;
-		/*need to position this unless we wrap the progress bars in another div*/
-		position: relative;
-		top: -500px;
+		margin-left: 2%;*/
+		width: 100%;
 	}
 
-	.gameHome footer img {
-		width: 97%;
-		margin: 0 0 0 3%;
-		display: block;
-	}
-
-	.gameHome footer img:first-of-type {
-		margin-left: 0;
-	}	
-
-	 /*position is to move the last image, LOGO, to the top */
 	.gameHome footer img.logo {
-
-/*		position: absolute;
-		top: -200px;
-		z-index: 1000;*/
+		width: 22%;
+		margin: 0 10px 0 -20px;
+		float: left;
+		display: block;
 	}	
+
+	.gameHome footer img.casting_call, .gameHome footer img.doctor {
+		width: 25%;
+		margin: 0 0 0 1%;
+		display: block;
+		float: left;
+	}
+
+
 
 	/******************* END - gameHome SCREEN *******************/
 
@@ -807,7 +803,7 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 		width: 22.69938650%; /*	222/978 */
 		max-width: 250px;
 		display:block;
-		margin: 9 auto;
+		margin: 0 auto;
 	}
 
 	header h1 {
@@ -860,8 +856,7 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 /******************* START - gameHome SCREEN *******************/
 
 	.gameHome h1 {
-		font-size: 16px;
-		margin-bottom: 10px; 
+		font-size: 24px;
 	}
 
 	section#gameHome{
@@ -891,7 +886,7 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 	}
 
 	div.bar .amount {
-		width: 100%;
+		width: 0%;
 		display: inline-block;
 		height: 100%;
 	}
@@ -911,23 +906,29 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 	.gameHome footer {
 		float: left;
 		padding: 0;
-		width: 28%;
-		margin-left: 2%;
+		width: 100%;
+		margin-bottom: 2%;
 		/*need to position this unless we wrap the progress bars in another div*/
-		position: relative;
-		top: -320px;
+/*		position: relative;
+		top: -320px;*/
 	}
+
+	.gameHome footer img.logo/*:first-of-type*/ {
+		margin: 0 10px 0 -10px;
+		width: 22%;
+	}	
 
 	.gameHome footer img {
-		width: 97%;
-		margin: 0 0 0 3%;
+		width: 30%;
+		margin: 0;
 		display: block;
 		padding-top: 10%;
+		padding-left: 10px;
+		float: left;
+		box-sizing: border-box;
 	}
 
-	.gameHome footer img:first-of-type {
-		margin-left: 0;
-	}	
+
 
 	 /*position is to move the last image, LOGO, to the top */
 	.gameHome footer img.logo {
