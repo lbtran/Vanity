@@ -55,7 +55,6 @@
 						<a href="#" onclick="doctorsOffice()"><img class="doctor" src="images/doctor_button.png" alt="doctor" title="doctor" /></a>
 
 					</footer>
-					<div id="moles"></div>
 					<article class="progress">
 						<a href="#" onclick="getFitness()"><img src="images/fitness_button.png" alt="fitness" title="fitness" /></a>
 						<div class="bar fitness">
@@ -97,6 +96,7 @@
 							<p class="activityDesc" id="activityDescription"></p>
 
 							<img src="images/activity.png" alt="activity" title="activity" id="activityImage" />
+							<input type="submit" class="button" name="OK" value="OK!" onclick="progressResultReceived()"/>
 						</article>	
 
 	
@@ -140,7 +140,8 @@
 						<article class="activity">
 							<h2>Good decision!</h2>
 							<p>One less mole means less chance of cancer...</p>
-							<img src="images/doctor.png" alt="doctor" title="doctor" />						
+							<img src="images/doctor.png" alt="doctor" title="doctor" />	
+							<input type="submit" name="OK" value="OK!" onclick="removedMole()"/>	
 						</article>
 					</section>	
 		</div>
@@ -177,9 +178,9 @@
 					<section class="castingCallResult">
 						<article class="activity">
 							<h2 id="castingResultHeader"></h2>
-							<p id="castingResult">This casting call was looking for someone with more style and a deeper glow. Sorry, maybe next time!</p>
-							<img src="images/nope.png" alt="failed casting call" title="failed casting call" />					
-
+							<p id="castingResult"></p>
+							<img id="auditionImage" src="images/nope.png" alt="Casting Call Result" title="Casting Call Result" />					
+							<input class="button" type="submit" name="ok" value="OK!" onclick="castingResultReceived()"/>
 						</article>
 					</section>						
 		</div>
