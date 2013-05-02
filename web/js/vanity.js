@@ -328,7 +328,40 @@ function getCurrentAvatar() {
 		return image;
 	}
 	else {
-		//female
+		var image = characters.female.standard;
+			if (player.fitness > characters.levels.fitness[1]) {
+				image = characters.female.buff;
+				if (player.fitness > characters.levels.fitness[2]) {
+					image = characters.female.ripped;
+					
+						if (player.style > characters.levels.style[1]) {
+							image = characters.female.rippedAndFashionable;
+				
+							if (player.style > characters.levels.style[2]) {
+								image = characters.female.rippedAndStylish;
+							}
+				
+						}
+				
+				}
+				else {
+					if (player.style > characters.levels.style[1]) {
+						image = characters.female.buffAndFashionable;
+						if (player.style > characters.levels.style[2]) {
+							image = characters.female.stylishAndBuff;
+						}
+					}
+				}
+			}
+			else {
+				if (player.style > characters.levels.style[1]) {
+					image = characters.female.fashionable;
+					if (player.style > characters.levels.style[2]) {
+						image = characters.female.stylish;
+					}
+				}
+			}
+		return image;
 	}
 }
 
@@ -513,8 +546,8 @@ function audition(call) {
 			return {success: true};
 		}
 		else {
-			var selectedHeader = randomInt(call.male.success.length);
-			$("div#castingResultHeader").html(call.male.success[selectedHeader]);
+			var selectedHeader = randomInt(call.female.success.length);
+			$("div#castingResultHeader").html(call.female.success[selectedHeader]);
 			return {success: true};			
 		}
 	}
@@ -524,8 +557,8 @@ function audition(call) {
 			$("div#castingResultHeader").html(call.male.fail[selectedHeader]);
 		}
 		else {
-			var selectedHeader = randomInt(call.male.fail.length);
-			$("div#castingResultHeader").html(call.male.fail[selectedHeader]);
+			var selectedHeader = randomInt(call.female.fail.length);
+			$("div#castingResultHeader").html(call.female.fail[selectedHeader]);
 
 		}
 		var attributesNeeded = [];
