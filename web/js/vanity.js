@@ -745,6 +745,11 @@ function getStatus() {
 	$('div#fameStatus').show();
 
 }
+function sawStatus() {
+	$('div#fameStatus').hide();
+	$('div#gameHome').show();
+
+}
 
 function mole() {
 	var mNum = randomInt(moles.images.length);
