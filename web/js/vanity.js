@@ -45,13 +45,19 @@ var characters = {
 
 function atrophy() {
 	if (player.timeSince.fitness > atrophy.fitness) {
-		player.fitness--;
+		if (player.fitness > 0) {
+			player.fitness--;
+		}
 	}
 	if (player.timeSince.style > atrophy.style) {
-		player.style--;
+		if (player.style > 0) {
+			player.style--;
+		}
 	}
 	if (player.timeSince.tan > atrophy.tan) {
-		player.tan--;
+		if (player.tan > 0) {
+			player.tan--;
+		}
 	}
 }
 function getCurrentAvatar() {
@@ -348,6 +354,8 @@ function getNaturalTan() {
 }
 
 function getTanningBed() {
+	player.timeSince.fitness++;
+	player.timeSince.style++;
 	if (player.gender == "male") {
 		var tan = getActivity(activities.male.bed);
 	}
@@ -376,6 +384,8 @@ function getTanningBed() {
 }
 
 function getStyle() {
+	player.timeSince.fitness++;
+	player.timeSince.tan++;
 	if (player.gender == "male") {
 		var style = getActivity(activities.male.style);
 	}	
@@ -400,6 +410,8 @@ function getStyle() {
 
 
 function getFitness() {
+	player.timeSince.style++;
+	player.timeSince.tan++;
 	if (player.gender == "male") {
 		var fitness = getActivity(activities.male.fitness);
 	}
@@ -475,6 +487,9 @@ function castingCall() {
 }
 
 function audition(call) {
+	player.timeSince.fitness++;
+	player.timeSince.tan++;
+	player.timeSince.style++;
 	var requiredTan = call.tan + randomInt(call.variance);
 	var requiredStyle = call.style + randomInt(call.variance);
 	var requiredFitness = call.fitness + randomInt(call.variance);
@@ -640,15 +655,17 @@ function auditionForBlockbuster() {
 }
 
 function castingResultReceived() {
-		$('div#castingCallResult').hide();
-		if(dayPassedDidIDie()) {
-			obituary();
-		}
-		else {
-			$('div#gameHome').show();
-		}	
+	atrophy();
+	$('div#castingCallResult').hide();
+	if(dayPassedDidIDie()) {
+		obituary();
+	}
+	else {
+		$('div#gameHome').show();
+	}	
 }
 function progressResultReceived() {
+	atrophy();
 	$('div#makeProgress').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
