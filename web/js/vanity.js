@@ -7,14 +7,15 @@ var player = {
 				tan:0,
 				moles: [],
 				vanity: 0,
-				daysLeft: 50,
+				daysLeft: 120,
 				gender: "male",
 				image: "male_style0_buff0.png",
 				timeSince: {
 					fitness: 0,
 					style: 0,
 					tan: 0
-				}
+				},
+				fameIndex: 0,
 			};
 
 var atrophy = {
@@ -43,65 +44,7 @@ var characters = {
 				female: {}
 }
 
-function atrophy() {
-	if (player.timeSince.fitness > atrophy.fitness) {
-		if (player.fitness > 0) {
-			player.fitness--;
-		}
-	}
-	if (player.timeSince.style > atrophy.style) {
-		if (player.style > 0) {
-			player.style--;
-		}
-	}
-	if (player.timeSince.tan > atrophy.tan) {
-		if (player.tan > 0) {
-			player.tan--;
-		}
-	}
-}
-function getCurrentAvatar() {
-	
-	if (player.gender == "male") {
-		var image = characters.male.standard;
-			if (player.fitness > characters.levels.fitness[1]) {
-				image = characters.male.buff;
-				if (player.fitness > characters.levels.fitness[2]) {
-					image = characters.male.ripped;
-					
-						if (player.style > characters.levels.style[1]) {
-							image = characters.male.rippedAndFashionable;
-				
-							if (player.style > characters.levels.style[2]) {
-								image = characters.male.rippedAndStylish;
-							}
-				
-						}
-				
-				}
-				else {
-					if (player.style > characters.levels.style[1]) {
-						image = characters.male.buffAndFashionable;
-						if (player.style > characters.levels.style[2]) {
-							image = characters.male.stylishAndBuff;
-						}
-					}
-				}
-			}
-			else {
-				if (player.style > characters.levels.style[1]) {
-					image = characters.male.fashionable;
-					if (player.style > characters.levels.style[2]) {
-						image = characters.male.stylish;
-					}
-				}
-			}
-		return image;
-	}
-	else {
-		//female
-	}
-}
+
 var activities = {
 				baseline: 10,
 				male: {	fitness: 
@@ -309,15 +252,75 @@ var moles = {
 	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png", "mole19.png", "mole20.png", "mole21.png", "mole22.png", "mole23.png", "mole24.png"]
 }
 
-var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png"},
-			{amount: 20, status: "D Lister", image: "status_d.png"},
-			{amount: 42, status: "C Lister", image: "status_c.png"},			
-			{amount: 154, status: "B Lister", image: "status_b.png"},			
-			{amount: 246, status: "A Lister", image: "status_a.png"}			
+var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png", status: "Everyone has to start somewhere, right? Land your first role, and you’ll move up to the D-list."},
+			{amount: 20, status: "D Lister", image: "status_d.png", status: "So, you’ve been an extra or you’ve starred in a complete flop. Try for some more commercials and score an indie film role until you build up your rep to the C-list."},
+			{amount: 42, status: "C Lister", image: "status_c.png", status: "Okay, you’ve gotten a few small roles, and people are starting to recognize your face. Keep up the good work and try to score a role in a blockbuster, and you’ll make it to the B-list."},			
+			{amount: 154, status: "B Lister", image: "status_b.png", status: "Great, you’re an accomplished actor, even if your name isn’t quite a household name yet. Solidify your fame with a few more blockbusters, and you’ll reach A-list Superstardom!"},			
+			{amount: 246, status: "A Lister", image: "status_a.png", status: "You did it.  You're a superstar!"}			
 			];
 
 var tips = ["Get a tan", "Get some muscles"];
 var tipPrefix = [" Maybe you should work on your ", " They said you needed more ", " I bet they wanted someone with more "];
+
+function playerAtrophy() {
+	if (player.timeSince.fitness > atrophy.fitness) {
+		if (player.fitness > 0) {
+			player.fitness--;
+		}
+	}
+	if (player.timeSince.style > atrophy.style) {
+		if (player.style > 0) {
+			player.style--;
+		}
+	}
+	if (player.timeSince.tan > atrophy.tan) {
+		if (player.tan > 0) {
+			player.tan--;
+		}
+	}
+}
+function getCurrentAvatar() {
+	
+	if (player.gender == "male") {
+		var image = characters.male.standard;
+			if (player.fitness > characters.levels.fitness[1]) {
+				image = characters.male.buff;
+				if (player.fitness > characters.levels.fitness[2]) {
+					image = characters.male.ripped;
+					
+						if (player.style > characters.levels.style[1]) {
+							image = characters.male.rippedAndFashionable;
+				
+							if (player.style > characters.levels.style[2]) {
+								image = characters.male.rippedAndStylish;
+							}
+				
+						}
+				
+				}
+				else {
+					if (player.style > characters.levels.style[1]) {
+						image = characters.male.buffAndFashionable;
+						if (player.style > characters.levels.style[2]) {
+							image = characters.male.stylishAndBuff;
+						}
+					}
+				}
+			}
+			else {
+				if (player.style > characters.levels.style[1]) {
+					image = characters.male.fashionable;
+					if (player.style > characters.levels.style[2]) {
+						image = characters.male.stylish;
+					}
+				}
+			}
+		return image;
+	}
+	else {
+		//female
+	}
+}
 
 function getTan() {
 	$('div#chooseTan').show();
@@ -340,7 +343,6 @@ function getNaturalTan() {
 		mole();
 	}
 	$('#activityDescription').html(tan.caption);
-//	$('#activityImage').attr('src', 'images/tan_activity_'+tan.index+'.png');
 	$('#activityImage').attr('src', 'images/' + tan.image);
 	$('div#makeProgress article.progress div.bar').addClass("tan");
 	$('div#makeProgress article.progress img').attr('src', 'images/tan.png');
@@ -655,7 +657,7 @@ function auditionForBlockbuster() {
 }
 
 function castingResultReceived() {
-	atrophy();
+	playerAtrophy();
 	$('div#castingCallResult').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
@@ -665,7 +667,7 @@ function castingResultReceived() {
 	}	
 }
 function progressResultReceived() {
-	atrophy();
+	playerAtrophy();
 	$('div#makeProgress').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
@@ -694,8 +696,13 @@ function noExam() {
 
 function getFameStatus() {
 	var statusImg = $('img#status');
+	var avatar = $('.player .avatar img');
+	var avatarTan = $('.player .tan img');
+	avatar.attr('src', 'images/' + getCurrentAvatar());
+	avatarTan.attr('src', 'images/' + getCurrentTan());
 	for (var i = 0; i < fame.length; i++) {
 		if (player.vanity >= fame[i].amount) {
+			fameIndex = i;
 			statusImg.attr("src", "images/" + fame[i].image);
 			statusImg.attr("alt", fame[i].status);
 			statusImg.attr("title", fame[i].status);
@@ -704,6 +711,7 @@ function getFameStatus() {
 			}
 		}
 	}
+	$('#fameStatus p').html(fame[player.fameIndex].status);
 }
 
 function dayPassedDidIDie() {
@@ -719,7 +727,7 @@ function dayPassedDidIDie() {
 
 function startGame() {
 	player.name = $("input[name=playerName]").val();
-	var headerHTML = "<img src='images/status_nobody.png' alt='status' title='status' id='status'/><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
+	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div><img src='images/status_nobody.png' alt='status' title='status' id='status'/></a><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
 	$('header.welcome').html(headerHTML);
 	$('div#intro').hide();
 	$('div#gameHome').show();
@@ -728,6 +736,13 @@ function startGame() {
 function doctorsOffice() {
 	$('div#gameHome').hide();
 	$('div#skinExam').show();
+
+}
+function getStatus() {
+	getFameStatus();	
+	$('div#fameStatus h2').html(player.status);
+	$('div#gameHome').hide();
+	$('div#fameStatus').show();
 
 }
 
@@ -754,6 +769,10 @@ function playAgain() {
 	player.moles = [];
 	player.vanity = 0;
 	player.daysLeft = 120;
+	$('div#makeProgress article.progress div.bar .amount').animate({width:0});
+	$('div#gameHome article.progress div.bar.tan .amount').css('width', 0);	
+	$('div#gameHome article.progress div.bar.fitness .amount').css('width', 0);	
+	$('div#gameHome article.progress div.bar.style .amount').css('width', 0);	
 	$('div#final').hide();
 	startGame();
 }
