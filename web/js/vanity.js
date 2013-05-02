@@ -823,6 +823,15 @@ function obituary() {
 	$('div#gameHome').hide();
 	$('div#final').show();
 }
+function learnAbout() {
+	$('div#gameHome').hide();
+	$('div#about').show();
+
+}
+function enoughAbout() {
+	$('div#about').hide();
+	$('div#gameHome').show();
+}
 
 function playAgain() {
 	player.fitness = 0;
