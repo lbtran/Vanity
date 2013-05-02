@@ -41,7 +41,17 @@ var characters = {
 						stylishAndBuff: "male_style2_buff1.png",
 						rippedAndStylish: "male_style2_buff2.png"
 				},
-				female: {}
+				female: {
+						standard: "female_style0_buff0.png",
+						buff: "female_style0_buff1.png",
+						ripped: "female_style0_buff2.png",
+						fashionable: "female_style1_buff0.png",
+						stylish: "female_style2_buff0.png",
+						buffAndFashionable: "female_style1_buff1.png",
+						rippedAndFashionable: "female_style1_buff2.png",
+						stylishAndBuff: "female_style2_buff1.png",
+						rippedAndStylish: "female_style2_buff2.png"
+				}
 }
 
 
