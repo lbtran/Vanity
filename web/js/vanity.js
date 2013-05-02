@@ -778,6 +778,10 @@ function getFameStatus() {
 }
 
 function dayPassedDidIDie() {
+	if (player.daysLeft <= 0) {
+		return true;
+	}
+
 	var melanoma = false;
 	for (var i = 0; i < player.moles.length; i++) {
 		player.moles[i].age++;
@@ -840,6 +844,8 @@ function mole() {
 
 function obituary() {
 	$("header.welcome h1").html("Time's up " + player.name);
+	$("#final p").html(obituaries[player.fameIndex].text);
+	$("#final .playerName").html(player.name);
 	$('div#gameHome').hide();
 	$('div#final').show();
 }
