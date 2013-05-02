@@ -183,7 +183,7 @@ var moles = {
 	natural: {amount: 2, modifier: 6},
 	baselineSeverity: 10,
 	removalTime: 10,
-	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png"]
+	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png", "mole19.png", "mole20.png", "mole21.png", "mole22.png", "mole23.png", "mole24.png"]
 }
 
 var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png"},
@@ -589,4 +589,15 @@ function obituary() {
 	$("header.welcome h1").html("Time's up " + player.name);
 	$('div#gameHome').hide();
 	$('div#final').show();
+}
+
+function playAgain() {
+	player.fitness = 0;
+	player.style = 0;
+	player.tan = 0;
+	player.moles = [];
+	player.vanity = 0;
+	player.daysLeft = 120;
+	$('div#final').hide();
+	startGame();
 }
