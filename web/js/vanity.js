@@ -7,25 +7,117 @@ var player = {
 				tan:0,
 				moles: [],
 				vanity: 0,
-				daysLeft: 120,
-				gender: "male"
+				daysLeft: 50,
+				gender: "male",
+				image: "male_style0_buff0.png",
+				timeSince: {
+					fitness: 0,
+					style: 0,
+					tan: 0
+				}
 			};
 
+var atrophy = {
+		fitness: 3,
+		style: 3,
+		tan: 3
+}
+var characters = {
+				levels: {
+						fitness: [0, 6, 10],
+						style: [0,6,10],
+						tan: [0,3,10,15]
+				},
+				tan: ["male_tan_0.png", "male_tan_1.png", "male_tan_2.png", "male_tan_3.png"],
+				male: {
+						standard: "male_style0_buff0.png",
+						buff: "male_style0_buff1.png",
+						ripped: "male_style0_buff2.png",
+						fashionable: "male_style1_buff0.png",
+						stylish: "male_style2_buff0.png",
+						buffAndFashionable: "male_style1_buff1.png",
+						rippedAndFashionable: "male_style1_buff2.png",
+						stylishAndBuff: "male_style2_buff1.png",
+						rippedAndStylish: "male_style2_buff2.png"
+				},
+				female: {}
+}
+
+function atrophy() {
+	if (player.timeSince.fitness > atrophy.fitness) {
+		player.fitness--;
+	}
+	if (player.timeSince.style > atrophy.style) {
+		player.style--;
+	}
+	if (player.timeSince.tan > atrophy.tan) {
+		player.tan--;
+	}
+}
+function getCurrentAvatar() {
+	
+	if (player.gender == "male") {
+		var image = characters.male.standard;
+			if (player.fitness > characters.levels.fitness[1]) {
+				image = characters.male.buff;
+				if (player.fitness > characters.levels.fitness[2]) {
+					image = characters.male.ripped;
+					
+						if (player.style > characters.levels.style[1]) {
+							image = characters.male.rippedAndFashionable;
+				
+							if (player.style > characters.levels.style[2]) {
+								image = characters.male.rippedAndStylish;
+							}
+				
+						}
+				
+				}
+				else {
+					if (player.style > characters.levels.style[1]) {
+						image = characters.male.buffAndFashionable;
+						if (player.style > characters.levels.style[2]) {
+							image = characters.male.stylishAndBuff;
+						}
+					}
+				}
+			}
+			else {
+				if (player.style > characters.levels.style[1]) {
+					image = characters.male.fashionable;
+					if (player.style > characters.levels.style[2]) {
+						image = characters.male.stylish;
+					}
+				}
+			}
+		return image;
+	}
+	else {
+		//female
+	}
+}
 var activities = {
 				baseline: 10,
 				male: {	fitness: 
+						{attributes:  
 							[{image: "fitness_activity_m_0.png", caption: "A drill sargeant will make sure to give you that six pack!"},
 							 {image: "fitness_activity_m_1.png", caption: "Those biceps are looking good!"},
 							 {image: "fitness_activity_m_2.png", caption: "That five mile run really got your heart racing!"},
 							 {image: "fitness_activity_m_3.png", caption: "A couple of hours on the treadmill will definitely get you looking good."},
 							 {image: "fitness_activity_m_4.png", caption: "Lifting at the gym, there's no quicker way to good fitness."}
 							 ],
-					  	style: 
+						baseline: 2,
+						variance: 7}, 
+					  	style:
+					  	{attributes: 
 					  		[{image: "style_activity_m_0.png", caption: "Nice watch! That's sure to impress someone."},
 					  		 {image: "style_activity_m_1.png", caption: "It took all day, but this cologne is amazing!"},
 					  		 {image: "style_activity_m_2.png", caption: "Nothing like a new hairdo to reinvent yourself."},
 					  		 ],
-					  	natural: 
+					  	baseline: 2,
+					  	variance: 8},
+					  	natural:
+					  	{attributes:
 					  		[{image: "natural_tan_activity_m_0.png", caption:"Running on the beach, that's a way one way to get a tan."},
 					  		{image: "natural_tan_activity_m_1.png", caption: "The breeze on the roof was perfect for sunbathing today."}, 
 					  	  	{image: "natural_tan_activity_m_2.png", caption: "A day of yard work in you bathing suit left you a few shades darker."},
@@ -33,37 +125,60 @@ var activities = {
 	  						{image: "natural_tan_activity_m_4.png", caption: "Swimming at the beach always leaves you tan and energized, too!"},
 			  				{image: "natural_tan_activity_m_5.png", caption: "You lounged by the pool all day. Good thing you didn’t fall asleep!"},
 					  		],
-					  	bed: 
+					  	baseline: 2,
+					  	variance: 5},
+					  	bed:
+					  		{attributes: 
 					  		[{image: "tanning_bed_activity_m_0.png", caption: "That all day tanning bed coupon was a steal, and your skin looks radiant!"},
 					  		 {image: "tanning_bed_activity_m_1.png", caption: "Shame the timer's up. Your positively glowing!"},
 					  		 {image: "tanning_bed_activity_m_2.png", caption: "One catnap on the bed and you’ve got a nice, even tan."}
 					  		 ],
+					  	baseline: 5,
+					  	variance: 10}
 					  },
 				female: {
 						fitness: 
+							{attributes:  
+
 							[{image: "fitness_activity_m_0.png", caption: "A drill sargeant will make sure to give you that six pack!"},
 							 {image: "fitness_activity_m_1.png", caption: "Those biceps are looking good!"},
 							 {image: "fitness_activity_m_2.png", caption: "That five mile run really got your heart racing!"},
 							 {image: "fitness_activity_m_3.png", caption: "A couple of hours on the treadmill will definitely get you looking good."},
 							 {image: "fitness_activity_m_4.png", caption: "Lifting at the gym, there's no quicker way to good fitness."}
 							 ],
+						baseline: 2,
+						variance: 7}, 
+
 					  	style: 
+					  		{attributes: 
 					  		[{image: "style_activity_f_0.png", caption: "That perm is going to look awesome!"},
 					  		 {image: "style_activity_f_1.png", caption: "It took all day, but this perfume is amazing!"},
 					  		 {image: "style_activity_f_2.png", caption: "Nothing like a new hairdo to reinvent yourself."},
 					  		 {image: "style_activity_f_3.png", caption: "Nothing like shopping for accessories to kick up your style!"}],
-					  	natural: [	{image: "natural_tan_activity_f_0.png", caption: "Running on the beach, that's one way to get a tan."}, 
+					  		baseline: 2,
+					  		variance: 8},
+
+					  	natural:
+					  		{attributes: 
+					  			[	{image: "natural_tan_activity_f_0.png", caption: "Running on the beach, that's one way to get a tan."}, 
 					  				{image: "natural_tan_activity_f_1.png", caption: "The breeze on the roof was perfect for sunbathing today."},
 		  							{image: "natural_tan_activity_f_2.png", caption: "A day of yard work in you bathing suit left you a few shades darker."},
 		  							{image: "natural_tan_activity_f_3.png", caption: "Reading and sunbathing in the park- good job building your mind, too."},
 			  						{image: "natural_tan_activity_f_4.png", caption: "Swimming at the beach always leaves you tan and energized, too!"},
 			  						{image: "natural_tan_activity_f_5.png", caption: "You lounged by the pool all day. Good thing you didn’t fall asleep!"}
 					  			  ],
-					  	bed: 
+						  	baseline: 2,
+						  	variance: 5},
+
+					  	bed:
+					  		{attributes:  
 					  		[{image: "tanning_bed_activity_f_0.png", caption: "That all day tanning bed coupon was a steal, and your skin looks radiant!"},
 					  		 {image: "tanning_bed_activity_f_1.png", caption: "Shame the timer's up. Your positively glowing!"},
 					  		 {image: "tanning_bed_activity_f_2.png", caption: "One catnap on the bed and you’ve got a nice, even tan."}
 					  		 ],
+					  	baseline: 5,
+					  	variance: 10}
+
 					  }
 	}
 var auditions = {
@@ -97,11 +212,12 @@ var auditions = {
 										],
 							},
 
-						style: 5,
+						style: 3,
 						tan: 5,
-						fitness: 5,
-						vanity: 1,
-						days: 5,
+						fitness: 3,
+						vanity: 10,
+						days: 4,
+						variance: 4
 				},
 				indie: {
 					male: {
@@ -132,11 +248,12 @@ var auditions = {
 								{image: "audition_indie_f_3.png", caption: "Good job, kid. You got the role where you save the day from the Chihuahuas from space. You’ll have a cult following in no time."}
 								]
 							},
-						style: 10,
-						tan: 10,
-						fitness: 10,
-						vanity: 2,
+						style: 4,
+						tan: 7,
+						fitness: 6,
+						vanity: 22,
 						days: 6,
+						variance: 5
 
 				},
 				blockbuster: {
@@ -168,14 +285,14 @@ var auditions = {
 									{image: "audition_blockbuster_f_3.png", caption: "You’re going to be the next big sensation after people see you in ‘Sundown: The Illuminated.’ You did great, kid."}
 									]
 							},
-						style: 15,
-						tan: 15,
-						fitness: 15,
+						style: 7,
+						tan: 9,
+						fitness: 10,
 						vanity: 3,
 						days: 8,
+						variance: 4
 
 				},
-				variance: 4
 			}
 
 var moles = {
@@ -187,10 +304,10 @@ var moles = {
 }
 
 var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png"},
-			{amount: 2, status: "D Lister", image: "status_d.png"},
-			{amount: 4, status: "C Lister", image: "status_c.png"},			
-			{amount: 6, status: "B Lister", image: "status_b.png"},			
-			{amount: 8, status: "A Lister", image: "status_a.png"}			
+			{amount: 20, status: "D Lister", image: "status_d.png"},
+			{amount: 42, status: "C Lister", image: "status_c.png"},			
+			{amount: 154, status: "B Lister", image: "status_b.png"},			
+			{amount: 246, status: "A Lister", image: "status_a.png"}			
 			];
 
 var tips = ["Get a tan", "Get some muscles"];
@@ -304,21 +421,43 @@ function getFitness() {
 }
 
 function getActivity(activity) {
-	var earned = randomInt(activities.baseline)+1;
-	var selectedIndex = randomInt(activity.length);
-	var action = activity[selectedIndex];
+	var earned = randomInt(activity.baseline)+randomInt(activity.variance);
+	var selectedIndex = randomInt(activity.attributes.length);
+	var action = activity.attributes[selectedIndex];
 	player.daysLeft--;
 	$('#daysLeft').html(player.daysLeft);
 	return {value: earned, caption: action.caption, image: action.image, index: selectedIndex}
 }
 
+function getCurrentTan() {
+	if (player.tan > characters.levels.tan[0]) {
+		if (player.tan > characters.levels.tan[1]) {
+			if (player.tan > characters.levels.tan[2]) {
+				if (player.tan > characters.levels.tan[3]) {
+					return characters.tan[3];
+				}
+			}
+			else {
+				return characters.tan[2];
+			}
+		}
+		else {
+			return characters.tan[1];
+		}
+	}
+	else {
+		return characters.tan[0];
+	}
+}
 function randomInt(range) {
 	return Math.floor(Math.random()*range);
 }
 function removeMole() {
 	player.daysLeft -= moles.removalTime;
 	$('#daysLeft').html(player.daysLeft);
-	player.moles.splice(randomInt(player.moles.length),1);
+	var moleToRemove = randomInt(player.moles.length);
+	player.moles.splice(moleToRemove,1);
+	$('#moles').children().eq(moleToRemove).remove();
 	$('div#skinExam').hide();
 	$('div#removeMole').show();
 
@@ -336,9 +475,9 @@ function castingCall() {
 }
 
 function audition(call) {
-	var requiredTan = call.tan + randomInt(auditions.variance);
-	var requiredStyle = call.style + randomInt(auditions.variance);
-	var requiredFitness = call.fitness + randomInt(auditions.variance);
+	var requiredTan = call.tan + randomInt(call.variance);
+	var requiredStyle = call.style + randomInt(call.variance);
+	var requiredFitness = call.fitness + randomInt(call.variance);
 	if (player.fitness >= requiredFitness && player.style >= requiredStyle && player.tan >= requiredTan) {
 		player.vanity += call.vanity;
 		if (player.gender == "male") {
