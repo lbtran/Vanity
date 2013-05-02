@@ -269,6 +269,24 @@ var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png", status: "E
 			{amount: 246, status: "A Lister", image: "status_a.png", status: "You did it.  You're a superstar!"}			
 			];
 
+var obituaries = [
+					{	rank: "Nobody",
+						text: "You never really did anything, you were a ghost."
+					},
+					{	rank: "D List",
+						text: "Some shoddy extra work, but <span class='playerName'></span> never accomplished much.. not much at all."
+					},
+					{	rank: "C List",
+						text: "Star of those commercials you love to fast forward through, <span class='playerName'></span> really could have been somebody."
+					},
+					{	rank: "B List",
+						text: "An accomplished actor, but <span class='playerName'></span> never had that break out role.  What a shame."
+					},
+					{	rank: "A List",
+						text: "The world will always remember <span class='playerName'></span>..."
+					},
+
+				];
 var tips = ["Get a tan", "Get some muscles"];
 var tipPrefix = [" Maybe you should work on your ", " They said you needed more ", " I bet they wanted someone with more "];
 
@@ -701,6 +719,7 @@ function auditionForBlockbuster() {
 
 function castingResultReceived() {
 	playerAtrophy();
+	getFameStatus();
 	$('div#castingCallResult').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
@@ -711,6 +730,7 @@ function castingResultReceived() {
 }
 function progressResultReceived() {
 	playerAtrophy();
+	getFameStatus();
 	$('div#makeProgress').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
