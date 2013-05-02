@@ -724,12 +724,26 @@ function dayPassedDidIDie() {
 	}
 	return melanoma;
 }
+function chooseGender() {
+	$('div#intro').hide();
+	$('div#chooseGender').show();
+
+}
+function startGameAsMale() {
+	player.gender = "male";
+	startGame();
+}
+function startGameAsFemale() {
+	player.gender = "female";
+	startGame();
+}
 
 function startGame() {
+	$('div#chooseGender').hide();
 	player.name = $("input[name=playerName]").val();
 	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div><img src='images/status_nobody.png' alt='status' title='status' id='status'/></a><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
 	$('header.welcome').html(headerHTML);
-	$('div#intro').hide();
+	getFameStatus();
 	$('div#gameHome').show();
 }
 

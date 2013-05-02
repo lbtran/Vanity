@@ -38,10 +38,16 @@
 
 						<div id="enterName">
 							<input class="field" type="text" name="playerName" />
-							<input class="button" type="submit" name="submitPlayerName" onclick="startGame()" value="PLAY" />
+							<input class="button" type="submit" name="submitPlayerName" onclick="chooseGender()" value="PLAY" />
 						</div>	
 					</section>
 		</div>
+<!-- CHOOSE GENDER -->
+						<div data-role="page" id="chooseGender">
+							<input class="button" type="submit" name="genderSelectionMale" onclick='startGameAsMale()' value="MALE"/>
+
+							<input class="button" type="submit" name="genderSelectionMale" onclick='startGameAsFemale()' value="FEMALE"/>
+						</div>
 <!-- HOME -->
 		<div data-role="page" id="gameHome">
 
