@@ -34,19 +34,21 @@
 						<p>But to get those gigs, you’ll need to put in some hard work! You’ll need to maintain your <em>FITNESS</em> at the gym, make sure you’re sufficiently <em>TAN</em> to appear healthy, and always be mindful of your <em>STYLE</em>.</p>
 						<p><em><strong>FITNESS, TAN, and STYLE</strong></em> - Just keep these 3 things in mind, and you’ll own the silver screen in no time!
 						</p>
-						<p>First things first, what's your name?</p>
+						<p>First things first, give your character a name.</p>
 
 						<div id="enterName">
 							<input class="field" type="text" name="playerName" />
-							<input class="button" type="submit" name="submitPlayerName" onclick="chooseGender()" value="PLAY" />
+							<a class="button" onclick="chooseGender()"><img src="images/button_play.svg" alt="Play button" title="Play" /></a>
 						</div>	
 					</section>
 		</div>
 <!-- CHOOSE GENDER -->
 						<div data-role="page" id="chooseGender">
-							<input class="button" type="submit" name="genderSelectionMale" onclick='startGameAsMale()' value="MALE"/>
 
-							<input class="button" type="submit" name="genderSelectionMale" onclick='startGameAsFemale()' value="FEMALE"/>
+							<h1>Select your character's gender.</h1>
+							<a class="button" onclick="startGameAsMale()"><img src="images/button_male.svg" alt="Male" /></a>
+
+							<a class="button" onclick="startGameAsFemale()"><img src="images/button_female.svg" alt="Female" /></a>
 						</div>
 <!-- HOME -->
 		<div data-role="page" id="gameHome">
@@ -55,12 +57,7 @@
 				<section class="gameHome">
 
 					<h1>Select what you would like to do now.</h1>
-					<footer>
-						<a href="#" onclick="learnAbout()"><img class="logo" src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a>
-						<a href="#" onclick="castingCall()"><img class="casting_call" src="images/casting_call.png" alt="casting call" title="casting call" /></a>
-						<a href="#" onclick="doctorsOffice()"><img class="doctor" src="images/doctor_button.png" alt="doctor" title="doctor" /></a>
 
-					</footer>
 					<article class="progress">
 						<a href="#" onclick="getFitness()"><img src="images/fitness_button.png" alt="fitness" title="fitness" /></a>
 						<div class="bar fitness">
@@ -83,7 +80,12 @@
 						</div>
 					</article>	
 
+					<footer>
+						<a href="#" onclick="learnAbout()"><img class="logo" src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a>
+						<a href="#" onclick="castingCall()"><img class="casting_call" src="images/casting_call.png" alt="casting call" title="casting call" /></a>
+						<a href="#" onclick="doctorsOffice()"><img class="doctor" src="images/doctor_button.png" alt="doctor" title="doctor" /></a>
 
+					</footer>
 				</section>
 		</div>
 <!-- MAKE PROGRESS -->
@@ -102,7 +104,7 @@
 							<p class="activityDesc" id="activityDescription"></p>
 
 							<img src="images/activity.png" alt="activity" title="activity" id="activityImage" />
-							<input type="submit" class="button" name="OK" value="OK!" onclick="progressResultReceived()"/>
+							<a class="button" onclick="progressResultReceived()"><img src="images/button_ok.svg" alt="ok" /></a>
 						</article>	
 
 	
@@ -122,8 +124,11 @@
 
 						<article class="activity">
 							<p>How would you like to get your tan on?</p>
-							<input class="button" type="submit" name="Natural" value="Natural Tan" onclick="getNaturalTan()" />
-							<input class="button" type="submit" name="Bed" value="Tanning Bed" onclick="getTanningBed()"/>
+
+							<section class="options">
+								<a class="button" onclick="getNaturalTan()"><img src="images/naturalTan.svg" alt="natural tan" /></a>
+								<a class="button" onclick="getTanningBed()"><img src="images/tanningBed.svg" alt="tanning bed" /></a>
+						</section>
 						</article>
 					</section>	
 		</div>
@@ -147,7 +152,7 @@
 							<h2>Good decision!</h2>
 							<p>One less mole means less chance of cancer...</p>
 							<img src="images/doctor.png" alt="doctor" title="doctor" />	
-							<input type="submit" name="OK" value="OK!" onclick="removedMole()"/>	
+							<a class="button" onclick="removedMole()"><img src="images/button_ok.svg" alt="ok" /></a>
 						</article>
 					</section>	
 		</div>
@@ -161,9 +166,9 @@
 							<img class="fameStatus" src="images/status_nobody.png" alt="D List" title="D List" />
 							<div class="player">
 								<div class="tan"><img src="images/male_tan_0.png"></div>
-								<div class="avatar"><img src="images/male_style0_buff0.png"></div>
+								<!-- <div class="avatar"><img src="images/male_style0_buff0.png"></div> -->
 							</div>
-							<input type="submit" name="OK" value="OK!" onclick="sawStatus()"/>
+							<a class="button" onclick="sawStatus()"><img src="images/button_ok.svg" alt="Status" /></a>
 							<!-- figure out another image to put here -->					
 
 						</article>
@@ -176,10 +181,13 @@
 						<article class="activity">
 							<h2>Casting Call</h2>
 							<p>Which one of these do you want to audition for?</p>
-							<input class="button" type="submit" name="Indie" value="Indie Movie" onclick="auditionForIndie()"/>
-							<input class="button" type="submit" name="Commercial" value="Commercial" onclick="auditionForCommercial()"/>
-							<input class="button" type="submit" name="Blockbuster" value="Blockbuster Film" onclick="auditionForBlockbuster()"/>
-							<input class="button" type="submit" name="None" value="None right now." onclick="dontAudition()"/>
+
+							<section class="options">
+								<a class="button" onclick="auditionForCommercial()"><img src="images/commercial.svg" alt="Commercial" /></a>
+								<a class="button" onclick="auditionForIndie()"><img src="images/indie.svg" alt="Indie" /></a>
+								<a class="button" onclick="auditionForBlockbuster()"><img src="images/blockbuster.svg" alt="Blockbuster" /></a>
+								<a class="button" onclick="dontAudition()"><img src="images/casting_none.svg" alt="No Audition" /></a>
+
 						</article>
 					</section>
 		</div>
@@ -190,8 +198,9 @@
 						<article class="activity">
 							<h2 id="castingResultHeader"></h2>
 							<p id="castingResult"></p>
-							<img id="auditionImage" src="images/nope.png" alt="Casting Call Result" title="Casting Call Result" />					
-							<input class="button" type="submit" name="ok" value="OK!" onclick="castingResultReceived()"/>
+							<img id="auditionImage" src="images/nope.png" alt="Casting Call Result" title="Casting Call Result" />	
+							<a class="button" onclick="castingResultReceived()"><img src="images/button_ok.svg" alt="ok" /></a>
+
 						</article>
 					</section>						
 		</div>
@@ -202,7 +211,7 @@
 					<article class="activity">
 						<h2>Credits</h2>
 						<p>Developed by dataPlayed.</p>
-						<input class="button" type="submit" name="OK" value="OK!" onclick="enoughAbout()"/>
+						<a class="button" onclick="enoughAbout()"><img src="images/button_ok.svg" alt="ok" /></a>
 					</article>
 				</section>
 		</div>
@@ -215,10 +224,16 @@
 					<article class="activity">
 						<h2>Obituary</h2>
 						<p>You were loved.... but were a failed actor.</p>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=vanity.dataplayed.com" target="_blank">Share on Facebook</a>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-text="Can you make the A List? http://vanity.dataplayed.com" data-size="large" data-count="none">Tweet</a>
+						<section class="options final">
+							<div>
+								<a href="https://www.facebook.com/sharer/sharer.php?u=vanity.dataplayed.com" target="_blank"><img src="images/facebookShare.gif" alt="ok" /></a>
+							</div>
+							<div>
+								<a href="https://twitter.com/share" class="twitter-share-button" data-text="Can you make the A List? http://vanity.dataplayed.com" data-size="large" data-count="none">Tweet</a>
+							</div>
+						</section>	
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-						<input class="button" type="submit" name="Again" value="Play again" onclick="playAgain()"/>
+						<a class="button playAgain" onclick="playAgain()"><img src="images/playAgain.svg" alt="play again" /></a>
 					</article>
 				</section>
 		</div>

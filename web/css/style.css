@@ -208,7 +208,7 @@ body {
 a {
 	color: blue;
 	outline: none;
-	text-decoration: underline;
+	text-decoration: none;
 }
 a:hover {
 	text-decoration: none;
@@ -263,7 +263,21 @@ header h1 {
 	font-size: 2.166666666667%;
 }
 
+img.logo {
+	position: fixed;
+	top: 3%;
+	right: 5%;
+}
 
+footer { 
+	padding-left: 0;
+	margin-left: 26%;
+}
+
+footer img:first-of-type {
+	margin-left: 0;
+	padding-left: 0;
+}
 
 /* Middle
 -----------------------------------------------------------------------------*/
@@ -286,7 +300,123 @@ header h1 {
 /*	padding: 0 270px 0 270px;*/
 }
 
+/* Button styles
+------------------------------------------------*/
+.button {
+	position: relative;
+}
+#intro .button img { 
+	width: 50%;
+}
 
+#intro .button span {
+	position: absolute;
+	left: 20px;
+	text-align: center;
+	top: 15px;
+} 
+
+a.button:hover {
+	cursor: hand;
+}
+
+a.button span,
+a.button span:link, 
+a.button span:visited,
+a.button span:hover,
+a.button span:active { 
+	color: white;
+	font-family: 'ActionManRegular';
+	font-size: 1.2em;
+}
+
+/* Gender buttons
+------------------------------------------------*/
+#chooseGender {
+	margin: 10px auto;
+	width: 70%;
+}
+
+#chooseGender h1 {
+	margin-bottom: 2%;
+}
+#chooseGender .button { 
+	width: 48%;
+	margin: 1%;
+	float: left;
+}
+
+#chooseGender .button img {
+	width: 100%;
+}
+
+#chooseGender a.button span {
+	position: absolute;
+	left: 50px;
+	text-align: center;
+	top: 35px;
+} 
+
+/* Avatar styles
+------------------------------------------------*/
+
+.player {
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+.avatar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	 margin: 0 auto;
+}
+
+.fameStatus {
+	float: left;
+}
+
+img .fameStatus {
+	width: 20%;
+}
+
+img .fameStatus {
+	width: 50%;
+}
+
+
+/* Options
+-----------------------------------------------------------------------------*/
+ .options {
+ 	clear: both;
+ 	width: 85%;
+ 	margin: 0 auto;
+ }
+
+ .options.final div {
+ 	display:block;
+ 	height: 25px;
+ 	float: left;
+ 	margin-right: 25px;
+
+ }
+
+ .options.final div img {
+ 	height: 30px;
+ 	width: auto;
+ 	margin-right: 5%;
+ }
+
+ a.playAgain {
+ 	clear: both;
+ }
+
+ .playAgain img {
+ 	width: 75%;
+ 	clear: both;
+ 	margin-top: 2%;
+ }
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 #sideLeft {
@@ -333,11 +463,16 @@ header h1 {
 body {
 	font-size: 18px;
 }
-	header, #middle, footer {
+	header, #middle {
 		box-sizing: border-box;
 		padding: 3.75%; /*	12/320 */
 		width: 100%;
 	}
+
+	footer { 
+	padding-left: 0;
+	margin-left: 26%;
+}
 
 	header img {
 		width: 25%; /*	105/300 */
@@ -427,7 +562,9 @@ body {
 		width: 74%;
 		height: 100%;
 		display: inline-block;
-		background-color: #FFF;
+		background-color: #fcfcfc;
+		border: solid 1px #000;
+		box-sizing: border-box;
 	}
 
 	div.bar .amount {
@@ -493,6 +630,11 @@ body {
 		margin: 0 auto;
 		display: block;
 	}
+
+
+	article.activity .castingOptions img {
+		float: left;
+	}	
 	/******************* END - makeProgress SCREEN *******************/
 
 	/******************* START - chooseTan/Skin Exam SCREEN *******************/

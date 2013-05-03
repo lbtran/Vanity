@@ -7,7 +7,7 @@ var player = {
 				tan:0,
 				moles: [],
 				vanity: 0,
-				daysLeft: 120,
+				daysLeft: 50,
 				gender: "male",
 				image: "male_style0_buff0.png",
 				timeSince: {
@@ -256,8 +256,8 @@ var auditions = {
 
 var moles = {
 	tanningBed: {amount: 4, modifier: 3},
-	natural: {amount: 2, modifier: 6},
-	baselineSeverity: 10,
+	natural: {amount: 2, modifier: 10},
+	baselineSeverity: 20,
 	removalTime: 10,
 	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png", "mole19.png", "mole20.png", "mole21.png", "mole22.png", "mole23.png", "mole24.png"]
 }
@@ -294,16 +294,19 @@ function playerAtrophy() {
 	if (player.timeSince.fitness > atrophy.fitness) {
 		if (player.fitness > 0) {
 			player.fitness--;
+			player.timeSince.fitness = 1;
 		}
 	}
 	if (player.timeSince.style > atrophy.style) {
 		if (player.style > 0) {
 			player.style--;
+			player.timeSince.style = 1;
 		}
 	}
 	if (player.timeSince.tan > atrophy.tan) {
 		if (player.tan > 0) {
 			player.tan--;
+			player.timeSince.tan = 1;
 		}
 	}
 }
@@ -410,8 +413,8 @@ function getNaturalTan() {
 
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:player.tan});
-	$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
+	$('.bar.tan .amount').css('width', player.tan);
 
 	return tan.caption;
 }
@@ -440,8 +443,8 @@ function getTanningBed() {
 
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:player.tan});
-	$('div#gameHome article.progress div.bar.tan .amount').css('width', player.tan);
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
+	$('div .bar.tan .amount').css('width', player.tan);
 
 	return tan.caption;
 }
@@ -455,6 +458,7 @@ function getStyle() {
 	else {
 		var style = getActivity(activities.female.style);
 	}
+
 	player.style += style.value;
 	$('#activityDescription').html(style.caption);
 	$('#activityImage').attr('src', 'images/' + style.image);
@@ -463,8 +467,8 @@ function getStyle() {
 
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:player.style});
-	$('div#gameHome article.progress div.bar.style .amount').css('width', player.style);
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.style/25)});
+	$('div#gameHome article.progress div.bar.style .amount').css('width', $('.progress div.bar').width() * (player.style/25));
 
 	return style.caption;
 }
@@ -481,6 +485,7 @@ function getFitness() {
 	else {
 		var fitness = getActivity(activities.female.fitness);
 	}
+
 	player.fitness += fitness.value;
 	$('#activityDescription').html(fitness.caption);
 	$('#activityImage').attr('src', 'images/' + fitness.image);
@@ -489,8 +494,8 @@ function getFitness() {
 
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:player.fitness});
-	$('div#gameHome article.progress div.bar.fitness .amount').css('width', player.fitness);
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.fitness/25)});
+	$('div#gameHome article.progress div.bar.fitness .amount').css('width', $('.progress div.bar').width() * (player.fitness/25));
 
 	return fitness.caption;
 }
@@ -808,7 +813,7 @@ function startGameAsFemale() {
 function startGame() {
 	$('div#chooseGender').hide();
 	player.name = $("input[name=playerName]").val();
-	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div><img src='images/status_nobody.png' alt='status' title='status' id='status'/></a><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
+	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div></a><h1>"+player.name+", you've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
 	$('header.welcome').html(headerHTML);
 	getFameStatus();
 	$('div#gameHome').show();
@@ -867,7 +872,7 @@ function playAgain() {
 	player.vanity = 0;
 	player.daysLeft = 120;
 	$('div#makeProgress article.progress div.bar .amount').animate({width:0});
-	$('div#gameHome article.progress div.bar.tan .amount').css('width', 0);	
+	$('.bar.tan .amount').css('width', 0);	
 	$('div#gameHome article.progress div.bar.fitness .amount').css('width', 0);	
 	$('div#gameHome article.progress div.bar.style .amount').css('width', 0);	
 	$('div#final').hide();
