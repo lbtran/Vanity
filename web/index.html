@@ -17,8 +17,9 @@
 <body>
 
 <div id="wrapper">
+
 		<header class="welcome">
-			<img src="images/logo.png" alt="Vanity logo" title="Vanity the game" />
+			<a href="#" onclick="learnAbout()"><img src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a>
 			<h1>Are you dying to look good?</h1>
 		</header>
 		<section id="middle">
@@ -34,18 +35,22 @@
 						<p>But to get those gigs, you’ll need to put in some hard work! You’ll need to maintain your <em>FITNESS</em> at the gym, make sure you’re sufficiently <em>TAN</em> to appear healthy, and always be mindful of your <em>STYLE</em>.</p>
 						<p><em><strong>FITNESS, TAN, and STYLE</strong></em> - Just keep these 3 things in mind, and you’ll own the silver screen in no time!
 						</p>
-						<p>First things first, give your character a name.</p>
+						<p>First things first, are you a male or female aspiring actor?</p>
 
-						<div id="enterName">
+						<!-- <div id="enterName">
 							<input class="field" type="text" name="playerName" />
 							<a class="button" onclick="chooseGender()"><img src="images/button_play.svg" alt="Play button" title="Play" /></a>
-						</div>	
+						</div>	 -->
+
+						<a class="button" onclick="startGameAsMale()"><img src="images/button_male.svg" alt="Male" /></a>
+
+						<a class="button" onclick="startGameAsFemale()"><img src="images/button_female.svg" alt="Female" /></a>
 					</section>
 		</div>
 <!-- CHOOSE GENDER -->
 						<div data-role="page" id="chooseGender">
 
-							<h1>Select your character's gender.</h1>
+							<h1>What's your gender?</h1>
 							<a class="button" onclick="startGameAsMale()"><img src="images/button_male.svg" alt="Male" /></a>
 
 							<a class="button" onclick="startGameAsFemale()"><img src="images/button_female.svg" alt="Female" /></a>
@@ -81,7 +86,7 @@
 					</article>	
 
 					<footer>
-						<a href="#" onclick="learnAbout()"><img class="logo" src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a>
+						<!-- <a href="#" onclick="learnAbout()"><img class="logo" src="images/logo.png" alt="Vanity logo" title="Vanity the game" /></a> -->
 						<a href="#" onclick="castingCall()"><img class="casting_call" src="images/casting_call.png" alt="casting call" title="casting call" /></a>
 						<a href="#" onclick="doctorsOffice()"><img class="doctor" src="images/doctor_button.png" alt="doctor" title="doctor" /></a>
 

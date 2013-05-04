@@ -264,9 +264,12 @@ header h1 {
 }
 
 img.logo {
-	position: fixed;
+	position: absolute;
 	top: 3%;
-	right: 5%;
+	right: 3%;
+	width: 25%;
+	display: none;
+	max-width: 400px;
 }
 
 footer { 
@@ -305,9 +308,17 @@ footer img:first-of-type {
 .button {
 	position: relative;
 }
+
+.welcome .button img,
 #intro .button img { 
 	width: 50%;
 }
+
+.welcome .button img {
+	float: left;
+	display: block;
+}
+
 
 #intro .button span {
 	position: absolute;
@@ -565,6 +576,7 @@ body {
 		background-color: #fcfcfc;
 		border: solid 1px #000;
 		box-sizing: border-box;
+
 	}
 
 	div.bar .amount {
@@ -803,7 +815,9 @@ body {
 		width: 66%;
 		height: 80%;
 		display: inline-block;
-		background-color: #FFF;
+		background-color: #fcfcfc;
+		border: solid 1px #000;
+		box-sizing: border-box;
 	}
 
 	div.bar .amount {
@@ -830,6 +844,8 @@ body {
 		width: 28%;
 		margin-left: 2%;*/
 		width: 100%;
+		clear: both;
+		margin-left: 0;
 	}
 
 	.gameHome footer img.logo {
@@ -1024,7 +1040,9 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 		width: 66%;
 		height: 80%;
 		display: inline-block;
-		background-color: #FFF;
+		background-color: #fcfcfc;
+		border: solid 1px #000;
+		box-sizing: border-box;
 	}
 
 	div.bar .amount {
@@ -1050,9 +1068,7 @@ viewport like Crappy Android on Responsinator but doesn't seem to work
 		padding: 0;
 		width: 100%;
 		margin-bottom: 2%;
-		/*need to position this unless we wrap the progress bars in another div*/
-/*		position: relative;
-		top: -320px;*/
+	/*	margin-left: 34%;*/
 	}
 
 	.gameHome footer img.logo/*:first-of-type*/ {
