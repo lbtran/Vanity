@@ -293,6 +293,7 @@ var tipPrefix = [" Maybe you should work on your ", " They said you needed more 
 var playing = false;
 var dead = false;
 var creditsAtTheEnd = false;
+var maxAttributes = 30;
 
 function playerAtrophy() {
 	if (player.timeSince.fitness > atrophy.fitness) {
@@ -391,7 +392,7 @@ function getCurrentAvatar() {
 }
 
 function getTan() {
-	$('div#makeProgress article.progress div.bar .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
+	$('div#makeProgress article.progress div.bar .amount').css('width', $('div#makeProgress .progress div.bar').width() * (player.tan/maxAttributes));
 
 	$('div#chooseTan').show();
 	$('div#gameHome').hide();
@@ -419,8 +420,8 @@ function getNaturalTan() {
 
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
-	$('div .bar.tan .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('div#makeProgress .progress div.bar').width() * (player.tan/maxAttributes)});
+	$('div .bar.tan .amount').css('width', $('div#makeProgress .progress div.bar').width() * (player.tan/maxAttributes));
 
 	return tan.caption;
 }
@@ -451,8 +452,8 @@ function getTanningBed() {
 
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
-	$('div .bar.tan .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('div#makeProgress .progress div.bar').width() * (player.tan/maxAttributes)});
+	$('div .bar.tan .amount').css('width', $('div#makeProgress .progress div.bar').width() * (player.tan/maxAttributes));
 
 	return tan.caption;
 }
@@ -477,8 +478,8 @@ function getStyle() {
 
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.style/25)});
-	$('div#gameHome article.progress div.bar.style .amount').css('width', $('.progress div.bar').width() * (player.style/25));
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('div#makeProgress .progress div.bar').width() * (player.style/maxAttributes)});
+	$('div#gameHome article.progress div.bar.style .amount').css('width', $('div#makeProgress .progress div.bar').width() * (player.style/maxAttributes));
 
 	return style.caption;
 }
@@ -503,11 +504,10 @@ function getFitness() {
 	$('#activityImage').attr('src', 'images/' + fitness.image);
 	$('div#makeProgress article.progress div.bar').addClass("fitness");
 	$('div#makeProgress article.progress img').attr('src', 'images/fitness.png');
-
 	$('div#gameHome').hide();
 	$('div#makeProgress').show();
-	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.fitness/25)});
-	$('div#gameHome article.progress div.bar.fitness .amount').css('width', $('.progress div.bar').width() * (player.fitness/25));
+	$('div#makeProgress article.progress div.bar .amount').animate({width:$('div#makeProgress .progress div.bar').width() * (player.fitness/maxAttributes)});
+	$('div#gameHome article.progress div.bar.fitness .amount').css('width', $('div#makeProgress .progress div.bar').width() * (player.fitness/maxAttributes));
 
 	return fitness.caption;
 }
