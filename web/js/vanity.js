@@ -70,7 +70,7 @@ var activities = {
 					  	style:
 					  	{attributes: 
 					  		[{image: "style_activity_m_0.png", caption: "Nice watch! That's sure to impress someone."},
-					  		 {image: "style_activity_m_1.png", caption: "It took all day, but this cologne is amazing!"},
+					  		 {image: "style_activity_m_1.png", caption: "It took all day, but you found the perfect cologne!"},
 					  		 {image: "style_activity_m_2.png", caption: "Nothing like a new hairdo to reinvent yourself."},
 					  		 ],
 					  	baseline: 2,
@@ -111,7 +111,7 @@ var activities = {
 					  	style: 
 					  		{attributes: 
 					  		[{image: "style_activity_f_0.png", caption: "That perm is going to look awesome!"},
-					  		 {image: "style_activity_f_1.png", caption: "It took all day, but this perfume is amazing!"},
+					  		 {image: "style_activity_f_1.png", caption: "It took all day, but you found the perfect perfume!"},
 					  		 {image: "style_activity_f_2.png", caption: "Nothing like a new hairdo to reinvent yourself."},
 					  		 {image: "style_activity_f_3.png", caption: "Nothing like shopping for accessories to kick up your style!"}],
 					  		baseline: 2,
@@ -152,8 +152,8 @@ var auditions = {
 								success:[
 										{image: "audition_commercial_m_0.png", caption: "It may be a small gig, but you got the role in the ad. Slow and steady wins the race, kid. Keep it up."},
 										{image: "audition_commercial_m_1.png", caption: "Everyone will want to use Re-Clox’s new wristwatch thanks to you. Way to get you face out there, kid."},
-										{image: "audition_commercial_m_2.png", caption: "Fee-Fi-Fo-Fum Inc. wants to send you a year’s supply of their beanbag chairs. I guess they were desperate for someone to take this role, kid."},
-										{image: "audition_commercial_m_3.png", caption: "You’re going to be the face selling rubber duck for Quack-Pott Co. from now on. Congratulations, kid. I guess."}
+										{image: "audition_commercial_m_0.png", caption: "Fee-Fi-Fo-Fum Inc. wants to send you a year’s supply of their beanbag chairs. I guess they were desperate for someone to take this role, kid."},
+										{image: "audition_commercial_m_1.png", caption: "You’re going to be the face selling rubber duck for Quack-Pott Co. from now on. Congratulations, kid. I guess."}
 										],
 							},
 						female: { 
@@ -166,8 +166,8 @@ var auditions = {
 								success:[
 										{image: "audition_commercial_f_0.png", caption: "It may be a small gig, but you got the role in the ad. Slow and steady wins the race, kid. Keep it up."},
 										{image: "audition_commercial_f_1.png", caption: "Everyone will want to use Re-Clox’s new wristwatch thanks to you. Way to get you face out there, kid."},
-										{image: "audition_commercial_f_2.png", caption: "Fee-Fi-Fo-Fum Inc. wants to send you a year’s supply of their beanbag chairs. I guess they were desperate for someone to take this role, kid."},
-										{image: "audition_commercial_f_3.png", caption: "You’re going to be the face selling rubber duck for Quack-Pott Co. from now on. Congratulations, kid. I guess."}
+										{image: "audition_commercial_f_0.png", caption: "Fee-Fi-Fo-Fum Inc. wants to send you a year’s supply of their beanbag chairs. I guess they were desperate for someone to take this role, kid."},
+										{image: "audition_commercial_f_1.png", caption: "You’re going to be the face selling rubber duck for Quack-Pott Co. from now on. Congratulations, kid. I guess."}
 										],
 							},
 
@@ -189,8 +189,8 @@ var auditions = {
 							success: [
 								{image: "audition_indie_m_0.png", caption: "You scored the role, kid. You’re names really getting out there, now."},
 								{image: "audition_indie_m_1.png", caption: "I don’t know how you did it, but you managed to score a role in that Western/Sci-fi/Thriller/Rom-com. Keep it up, kid."},
-								{image: "audition_indie_m_2.png", caption: "I’m not sure how big ‘JFK: Space-Time Astronaut’ will be, but you got the role anyway. Good work."},
-								{image: "audition_indie_m_3.png", caption: "Good job, kid. You got the role where you save the day from the Chihuahuas from space. You’ll have a cult following in no time."}
+								{image: "audition_indie_m_0.png", caption: "I’m not sure how big ‘JFK: Space-Time Astronaut’ will be, but you got the role anyway. Good work."},
+								{image: "audition_indie_m_1.png", caption: "Good job, kid. You got the role where you save the day from the Chihuahuas from space. You’ll have a cult following in no time."}
 								]
 					},
 					female: {
@@ -203,8 +203,8 @@ var auditions = {
 							success: [
 								{image: "audition_indie_f_0.png", caption: "You scored the role, kid. You’re names really getting out there, now."},
 								{image: "audition_indie_f_1.png", caption: "I don’t know how you did it, but you managed to score a role in that Western/Sci-fi/Thriller/Rom-com. Keep it up, kid."},
-								{image: "audition_indie_f_2.png", caption: "I’m not sure how big ‘JFK: Space-Time Astronaut’ will be, but you got the role anyway. Good work."},
-								{image: "audition_indie_f_3.png", caption: "Good job, kid. You got the role where you save the day from the Chihuahuas from space. You’ll have a cult following in no time."}
+								{image: "audition_indie_f_0.png", caption: "I’m not sure how big ‘JFK: Space-Time Astronaut’ will be, but you got the role anyway. Good work."},
+								{image: "audition_indie_f_1.png", caption: "Good job, kid. You got the role where you save the day from the Chihuahuas from space. You’ll have a cult following in no time."}
 								]
 							},
 						style: 4,
@@ -226,8 +226,8 @@ var auditions = {
 								success: [
 									{image: "audition_blockbuster_m_0.png", caption: "Way to land the lead role, kid. You’re reaching the big time, now."},
 									{image: "audition_blockbuster_m_1.png", caption: "You’re doing it, kid. You got the lead in ‘Lethal Death II.’ Great work."},
-									{image: "audition_blockbuster_m_2.png", caption: "‘Dino-Flight’ is definitely going to be a huge hit. Good thing that you got the lead. Keep at it, kid."},
-									{image: "audition_blockbuster_m_3.png", caption: "You’re going to be the next big sensation after people see you in ‘Sundown: The Illuminated.’ You did great, kid."}
+									{image: "audition_blockbuster_m_0.png", caption: "‘Dino-Flight’ is definitely going to be a huge hit. Good thing that you got the lead. Keep at it, kid."},
+									{image: "audition_blockbuster_m_1.png", caption: "You’re going to be the next big sensation after people see you in ‘Sundown: The Illuminated.’ You did great, kid."}
 									]
 							},
 						female: {
@@ -240,14 +240,14 @@ var auditions = {
 								success: [
 									{image: "audition_blockbuster_f_0.png", caption: "Way to land the lead role, kid. You’re reaching the big time, now."},
 									{image: "audition_blockbuster_f_1.png", caption: "You’re doing it, kid. You got the lead in ‘Lethal Death II.’ Great work."},
-									{image: "audition_blockbuster_f_2.png", caption: "‘Dino-Flight’ is definitely going to be a huge hit. Good thing that you got the lead. Keep at it, kid."},
-									{image: "audition_blockbuster_f_3.png", caption: "You’re going to be the next big sensation after people see you in ‘Sundown: The Illuminated.’ You did great, kid."}
+									{image: "audition_blockbuster_f_0.png", caption: "‘Dino-Flight’ is definitely going to be a huge hit. Good thing that you got the lead. Keep at it, kid."},
+									{image: "audition_blockbuster_f_1.png", caption: "You’re going to be the next big sensation after people see you in ‘Sundown: The Illuminated.’ You did great, kid."}
 									]
 							},
 						style: 7,
 						tan: 9,
 						fitness: 10,
-						vanity: 3,
+						vanity: 50,
 						days: 8,
 						variance: 4
 
@@ -262,11 +262,11 @@ var moles = {
 	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png"]
 }
 
-var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png", status: "Everyone has to start somewhere, right? Land your first role, and you’ll move up to the D-list."},
-			{amount: 20, status: "D Lister", image: "status_d.png", status: "So, you’ve been an extra or you’ve starred in a complete flop. Try for some more commercials and score an indie film role until you build up your rep to the C-list."},
-			{amount: 42, status: "C Lister", image: "status_c.png", status: "Okay, you’ve gotten a few small roles, and people are starting to recognize your face. Keep up the good work and try to score a role in a blockbuster, and you’ll make it to the B-list."},			
-			{amount: 154, status: "B Lister", image: "status_b.png", status: "Great, you’re an accomplished actor, even if your name isn’t quite a household name yet. Solidify your fame with a few more blockbusters, and you’ll reach A-list Superstardom!"},			
-			{amount: 246, status: "A Lister", image: "status_a.png", status: "You did it.  You're a superstar!"}			
+var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png", description: "Everyone has to start somewhere, right? Land your first role, and you’ll move up to the D-list."},
+			{amount: 10, status: "D Lister", image: "status_d.png", description: "So, you’ve been an extra or you’ve starred in a complete flop. Try for some more commercials and score an indie film role until you build up your rep to the C-list."},
+			{amount: 22, status: "C Lister", image: "status_c.png", description: "Okay, you’ve gotten a few small roles, and people are starting to recognize your face. Keep up the good work and try to score a role in a blockbuster, and you’ll make it to the B-list."},			
+			{amount: 44, status: "B Lister", image: "status_b.png", description: "Great, you’re an accomplished actor, even if your name isn’t quite a household name yet. Solidify your fame with a few more blockbusters, and you’ll reach A-list Superstardom!"},			
+			{amount: 50, status: "A Lister", image: "status_a.png", description: "You did it.  You're a superstar!"}			
 			];
 
 var obituaries = [
@@ -287,8 +287,12 @@ var obituaries = [
 					},
 
 				];
+var melanomaObituary = "Focusing all of their attention on making it big, they sadly forgot about their health.  If only they had avoided the tanning salon, perhaps another death from melanoma could have been prevented.";
 var tips = ["Get a tan", "Get some muscles"];
 var tipPrefix = [" Maybe you should work on your ", " They said you needed more ", " I bet they wanted someone with more "];
+var playing = false;
+var dead = false;
+var creditsAtTheEnd = false;
 
 function playerAtrophy() {
 	if (player.timeSince.fitness > atrophy.fitness) {
@@ -513,6 +517,10 @@ function getActivity(activity) {
 	var selectedIndex = randomInt(activity.attributes.length);
 	var action = activity.attributes[selectedIndex];
 	player.daysLeft--;
+	if (player.daysLeft < 0) {
+		player.daysLeft = 0;
+	}
+
 	$('#daysLeft').html(player.daysLeft);
 	return {value: earned, caption: action.caption, image: action.image, index: selectedIndex}
 }
@@ -523,6 +531,9 @@ function getCurrentTan() {
 			if (player.tan > characters.levels.tan[2]) {
 				if (player.tan > characters.levels.tan[3]) {
 					return characters.tan[3];
+				}
+				else {
+					return characters.tan[2];
 				}
 			}
 			else {
@@ -542,6 +553,9 @@ function randomInt(range) {
 }
 function removeMole() {
 	player.daysLeft -= moles.removalTime;
+	if (player.daysLeft < 0) {
+		player.daysLeft = 0;
+	}
 	$('#daysLeft').html(player.daysLeft);
 	var moleToRemove = randomInt(player.moles.length);
 	player.moles.splice(moleToRemove,1);
@@ -553,7 +567,12 @@ function removeMole() {
 
 function removedMole() {
 	$('div#removeMole').hide();
-	$('div#gameHome').show();
+	if(dayPassedDidIDie()) {
+		obituary();
+	}	
+	else {
+		$('div#gameHome').show();
+	}	
 }
 
 function castingCall() {
@@ -627,6 +646,9 @@ function auditionForIndie() {
 	var result = audition(auditions.indie);
 	player.daysLeft -= auditions.indie.days;
 	getFameStatus();	
+	if (player.daysLeft < 0) {
+		player.daysLeft = 0;
+	}	
 	$('#daysLeft').html(player.daysLeft);
 	var selectedIndex;
 	if (result.success) {
@@ -661,6 +683,9 @@ function auditionForIndie() {
 function auditionForCommercial() {
 	var result = audition(auditions.commercial);
 	player.daysLeft -= auditions.commercial.days;
+	if (player.daysLeft < 0) {
+		player.daysLeft = 0;
+	}	
 	$('#daysLeft').html(player.daysLeft);
 	getFameStatus();
 	var selectedIndex;
@@ -697,6 +722,9 @@ function auditionForBlockbuster() {
 	var result = audition(auditions.blockbuster);
 	player.daysLeft -= auditions.blockbuster.days;
 	getFameStatus();
+	if (player.daysLeft <= 0) {
+		player.daysLeft = 0;
+	}
 	$('#daysLeft').html(player.daysLeft);
 
 	var selectedIndex;
@@ -783,16 +811,18 @@ function getFameStatus() {
 			statusImg.attr("src", "images/" + fame[i].image);
 			statusImg.attr("alt", fame[i].status);
 			statusImg.attr("title", fame[i].status);
-			if (fame[i].status == "A Lister") {
-				obituary();
+			player.fameIndex = i;
+			if (i == fame.length -1) {
+//				dead = true;
 			}
 		}
 	}
-	$('#fameStatus p').html(fame[player.fameIndex].status);
+	$('#fameStatus p').html(fame[player.fameIndex].description);
 }
 
 function dayPassedDidIDie() {
 	if (player.daysLeft <= 0) {
+		daysLeft = 0;
 		return true;
 	}
 
@@ -801,6 +831,7 @@ function dayPassedDidIDie() {
 		player.moles[i].age++;
 		if (player.moles[i].turnsLeft - player.moles[i].age <= 0) {
 			melanoma = true;
+			dead = true;
 		}
 	}
 	return melanoma;
@@ -821,9 +852,10 @@ function startGameAsFemale() {
 
 function startGame() {
 	$('#intro').hide();
+	playing = true;
 //	$('div#chooseGender').hide();
 	player.name = $("input[name=playerName]").val();
-	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div></a><h1>You've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
+	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div></a><a href='#'' onclick='learnAbout()'><img src='images/logo.png' alt='Vanity logo' title='Vanity the game'/></a><h1>You've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
 	$('header.welcome').html(headerHTML);
 	getFameStatus();
 	$('div#gameHome').show();
@@ -835,11 +867,20 @@ function doctorsOffice() {
 
 }
 function getStatus() {
-	getFameStatus();	
-	$('div#fameStatus h2').html(player.status);
-	$('div#gameHome').hide();
-	$('div#fameStatus').show();
-
+	if (playing) {
+		getFameStatus();	
+		$('div#fameStatus h2').html(fame[player.fameIndex].status);
+		$('div#gameHome').hide();
+		$('div#intro').hide();
+		$('div#final').hide();
+		$('div#castingCall').hide();
+		$('div#castingCallResult').hide();
+		$('div#skinExam').hide();
+		$('div#makeProgress').hide();
+		$('div#chooseTan').hide();
+		$('div#about').hide();
+		$('div#fameStatus').show();
+	}
 }
 function sawStatus() {
 	$('div#fameStatus').hide();
@@ -858,20 +899,49 @@ function mole() {
 }
 
 function obituary() {
-	$("header.welcome h1").html("Time's up " + player.name);
-	$("#final p").html(obituaries[player.fameIndex].text);
+	playing = false;
+	creditsAtTheEnd = true;
+	if (dead) {
+		$("header.welcome h1").html("An Untimely Death");
+		$("#final p").html(melanomaObituary);
+	}
+	else {
+		$("header.welcome h1").html("Time's up!");
+		$("#final p").html(obituaries[player.fameIndex].text);		
+	}
 	$("#final .playerName").html(player.name);
 	$('div#gameHome').hide();
+	$('div#castingCall').hide();
+	$('div#castingCallResult').hide();
 	$('div#final').show();
 }
 function learnAbout() {
+	$('div#intro').hide();
 	$('div#gameHome').hide();
+	$('div#final').hide();
+	$('div#castingCall').hide();
+	$('div#castingCallResult').hide();
+	$('div#skinExam').hide();
+	$('div#makeProgress').hide();
+	$('div#chooseTan').hide();
+	$('div#fameStatus').hide();
+
 	$('div#about').show();
 
 }
 function enoughAbout() {
 	$('div#about').hide();
-	$('div#gameHome').show();
+	if (playing) {
+		$('div#gameHome').show();
+	}
+	else {
+		if (creditsAtTheEnd) {
+			$('div#final').show();
+		}
+		else {
+			$('div#intro').show();
+		}
+	}
 }
 
 function playAgain() {
@@ -880,7 +950,7 @@ function playAgain() {
 	player.tan = 0;
 	player.moles = [];
 	player.vanity = 0;
-	player.daysLeft = 120;
+	player.daysLeft = 50;
 	$('div#makeProgress article.progress div.bar .amount').animate({width:0});
 	$('.bar.tan .amount').css('width', 0);	
 	$('div#gameHome article.progress div.bar.fitness .amount').css('width', 0);	
