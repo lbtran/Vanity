@@ -272,6 +272,17 @@ img.logo {
 	max-width: 400px;
 }
 
+/*.welcome .avatar img {
+	width: 35%;
+	foat: left;
+	display: block;
+}
+
+.welcome h1 {
+	width: 63%;
+	margin: 0 1%;
+}*/
+
 footer { 
 	padding-left: 0;
 	margin-left: 26%;
