@@ -259,7 +259,7 @@ var moles = {
 	natural: {amount: 2, modifier: 10},
 	baselineSeverity: 20,
 	removalTime: 10,
-	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png", "mole19.png", "mole20.png", "mole21.png", "mole22.png", "mole23.png", "mole24.png"]
+	images: ["mole1.png", "mole2.png", "mole3.png", "mole4.png", "mole5.png", "mole6.png", "mole7.png", "mole8.png", "mole9.png", "mole10.png", "mole11.png", "mole12.png", "mole13.png", "mole14.png", "mole15.png", "mole16.png", "mole17.png", "mole18.png"]
 }
 
 var fame = [{amount: 0, status: "Nobody", image: "status_nobody.png", status: "Everyone has to start somewhere, right? Land your first role, and you’ll move up to the D-list."},
@@ -387,6 +387,8 @@ function getCurrentAvatar() {
 }
 
 function getTan() {
+	$('div#makeProgress article.progress div.bar .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
+
 	$('div#chooseTan').show();
 	$('div#gameHome').hide();
 }
@@ -414,12 +416,14 @@ function getNaturalTan() {
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
 	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
-	$('.bar.tan .amount').css('width', player.tan);
+	$('div .bar.tan .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
 
 	return tan.caption;
 }
 
 function getTanningBed() {
+	$('div#makeProgress article.progress div.bar .amount').css('width', $('div#gameHome article.progress div.bar.tan .amount').width());
+
 	player.timeSince.fitness++;
 	player.timeSince.style++;
 	if (player.gender == "male") {
@@ -444,12 +448,14 @@ function getTanningBed() {
 	$('div#chooseTan').hide();
 	$('div#makeProgress').show();
 	$('div#makeProgress article.progress div.bar .amount').animate({width:$('.progress div.bar').width() * (player.tan/25)});
-	$('div .bar.tan .amount').css('width', player.tan);
+	$('div .bar.tan .amount').css('width', $('.progress div.bar').width() * (player.tan/25));
 
 	return tan.caption;
 }
 
 function getStyle() {
+	$('div#makeProgress article.progress div.bar .amount').css('width', $('div#gameHome article.progress div.bar.style .amount').width());
+
 	player.timeSince.fitness++;
 	player.timeSince.tan++;
 	if (player.gender == "male") {
@@ -477,6 +483,8 @@ function getStyle() {
 
 
 function getFitness() {
+	$('div#makeProgress article.progress div.bar .amount').css('width', $('div#gameHome article.progress div.bar.fitness .amount').width());
+
 	player.timeSince.style++;
 	player.timeSince.tan++;
 	if (player.gender == "male") {
@@ -734,13 +742,14 @@ function castingResultReceived() {
 	}	
 }
 function progressResultReceived() {
-	playerAtrophy();
 	getFameStatus();
+	$('div#makeProgress article.progress div.bar .amount').css('width', 0);
 	$('div#makeProgress').hide();
 	if(dayPassedDidIDie()) {
 		obituary();
 	}
 	else {
+		playerAtrophy();
 		$('div#gameHome').show();
 	    $('div#makeProgress article.progress div.bar').attr('class', 'bar');
 
@@ -811,7 +820,8 @@ function startGameAsFemale() {
 }
 
 function startGame() {
-	$('div#chooseGender').hide();
+	$('#intro').hide();
+//	$('div#chooseGender').hide();
 	player.name = $("input[name=playerName]").val();
 	var headerHTML = "<a onclick='getStatus()'><div class='player'><div class='tan'><img src=''></div><div class='avatar'><img src=''></div></div></a><h1>You've got <span id='daysLeft'>"+player.daysLeft+"</span> Days to get famous!</h1><div id='moles'></div>";
 	$('header.welcome').html(headerHTML);
