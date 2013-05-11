@@ -590,6 +590,7 @@ function audition(call) {
 	var requiredFitness = call.fitness + randomInt(call.variance);
 	if (player.fitness >= requiredFitness && player.style >= requiredStyle && player.tan >= requiredTan) {
 		player.vanity += call.vanity;
+		$('img#failedAudition').hide();
 		if (player.gender == "male") {
 			var selectedHeader = randomInt(call.male.success.length);
 			$("div#castingResultHeader").html(call.male.success[selectedHeader]);
@@ -602,13 +603,15 @@ function audition(call) {
 		}
 	}
 	else {
+		$('img#failedAudition').show();
+		//TODO: Show Fail SVG
 		if (player.gender == "male") {
-			var selectedHeader = randomInt(call.male.fail.length);
-			$("div#castingResultHeader").html(call.male.fail[selectedHeader]);
+			var selectedHeader = randomInt(call.male.success.length);
+			$("div#castingResultHeader").html(call.male.success[selectedHeader]);
 		}
 		else {
-			var selectedHeader = randomInt(call.female.fail.length);
-			$("div#castingResultHeader").html(call.female.fail[selectedHeader]);
+			var selectedHeader = randomInt(call.female.success.length);
+			$("div#castingResultHeader").html(call.female.success[selectedHeader]);
 
 		}
 		var attributesNeeded = [];
@@ -665,15 +668,16 @@ function auditionForIndie() {
 		}
 	}
 	else {
+		//TODO: Fail SVG
 		if (player.gender == "male") {
 			selectedIndex = randomInt(auditions.indie.female.success.length);			
 			$('p#castingResult').html(getTip(auditions.indie.male, result));
-			$('img#auditionImage').attr('src', 'images/' + auditions.indie.male.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.indie.male.success[selectedIndex].image);
 		}
 		else {
 			selectedIndex = randomInt(auditions.indie.female.success.length);
 			$('p#castingResult').html(getTip(auditions.indie.female, result));			
-			$('img#auditionImage').attr('src', 'images/' + auditions.indie.female.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.indie.female.success[selectedIndex].image);
 		}
 	}
 	showAudition();
@@ -704,15 +708,15 @@ function auditionForCommercial() {
 	}
 	else {
 		if (player.gender == "male") {
-			selectedIndex = randomInt(auditions.commercial.male.fail.length);
+			selectedIndex = randomInt(auditions.commercial.male.success.length);
 			$('p#castingResult').html(getTip(auditions.commercial.male, result));
-			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.male.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.male.success[selectedIndex].image);
 
 		}
 		else {
-			selectedIndex = randomInt(auditions.commercial.female.fail.length);
+			selectedIndex = randomInt(auditions.commercial.female.success.length);
 			$('p#castingResult').html(getTip(auditions.commercial.female, result));			
-			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.female.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.female.success[selectedIndex].image);
 		}
 	}
 	showAudition();
@@ -742,15 +746,16 @@ function auditionForBlockbuster() {
 		}
 	}
 	else {
+		//TODO: Fail SVG
 		if (player.gender =="male") {
-			selectedIndex = randomInt(auditions.commercial.female.fail.length);
+			selectedIndex = randomInt(auditions.commercial.male.success.length);
 			$('p#castingResult').html(getTip(auditions.commercial.male, result));			
-			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.male.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.commercial.male.success[selectedIndex].image);
 		}
 		else {
-			selectedIndex = randomInt(auditions.blockbuster.female.fail.length);
+			selectedIndex = randomInt(auditions.blockbuster.female.success.length);
 			$('p#castingResult').html(getTip(auditions.blockbuster.female, result));
-			$('img#auditionImage').attr('src', 'images/' + auditions.blockbuster.female.fail[selectedIndex].image);
+			$('img#auditionImage').attr('src', 'images/' + auditions.blockbuster.female.success[selectedIndex].image);
 
 		}
 	}
