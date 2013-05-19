@@ -907,7 +907,7 @@ function obituary() {
 	playing = false;
 	creditsAtTheEnd = true;
 	if (dead) {
-		$("header.welcome h1").html("An Untimely Death");
+		$("header.welcome h1").html("You died from melanoma: too much tanning");
 		$("#final p").html(melanomaObituary);
 	}
 	else {
